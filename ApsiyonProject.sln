@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31402.337
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{2B382330-EBF7-4D04-9175-444ABBF3E6E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{F7513C3B-5E68-4FD4-9986-3191BF395F1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApsiyonProject.Domain", "ApsiyonProject.Domain\ApsiyonProject.Domain.csproj", "{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F7513C3B-5E68-4FD4-9986-3191BF395F1D} = {2B382330-EBF7-4D04-9175-444ABBF3E6E3}
+		{E789F6BF-50CC-4C1E-B7E9-5B1F57DC0A7E} = {F7513C3B-5E68-4FD4-9986-3191BF395F1D}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B9F847E-F89A-484F-ADA9-C7D6965065E7}
+	EndGlobalSection
+EndGlobal
