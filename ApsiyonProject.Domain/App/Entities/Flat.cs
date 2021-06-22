@@ -9,5 +9,6 @@ namespace ApsiyonProject.Domain.App.Entities
     public class Flat
     {
         public string FlatNumer { get; set; }
-    }
+        public HouseOwner HouseOwner{ get; set; }
+}
 }
