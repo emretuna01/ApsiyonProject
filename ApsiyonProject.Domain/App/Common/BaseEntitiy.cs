@@ -8,6 +8,7 @@ namespace ApsiyonProject.Domain.App.Common
 {
     public class BaseEntitiy
     {
-        public string Id { get; set; }
+        public Guid Id { get; set; }
+
     }
 }

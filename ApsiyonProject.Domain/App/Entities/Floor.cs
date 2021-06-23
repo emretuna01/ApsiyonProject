@@ -9,5 +9,9 @@ namespace ApsiyonProject.Domain.App.Entities
     public class Floor
     {
         public string FloorNumber { get; set; }
+        public Building Building { get; set; }
+        public ICollection<Flat>  Flats { get; set; }
+
+
     }
 }

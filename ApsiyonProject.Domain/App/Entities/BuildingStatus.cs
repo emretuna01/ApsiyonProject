@@ -9,5 +9,6 @@ namespace ApsiyonProject.Domain.App.Entities
     public class BuildingStatus
     {
         public string Status { get; set; }
+
     }
 }

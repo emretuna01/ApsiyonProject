@@ -12,6 +12,8 @@ namespace ApsiyonProject.Domain.App.Entities
         public string SurName { get; set; }
         public string TCNo { get; set; }
         public string Phone { get; set; }
+        public Flat Flat { get; set; }
+        public ICollection<Car> Cars{ get; set; }
 
     }
 }
