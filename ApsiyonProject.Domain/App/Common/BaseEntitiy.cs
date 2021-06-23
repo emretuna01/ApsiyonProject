@@ -9,6 +9,7 @@ namespace ApsiyonProject.Domain.App.Common
     public class BaseEntitiy
     {
         public Guid Id { get; set; }
+        public DateTime CreatedDateTime { get; set; }
 
     }
 }

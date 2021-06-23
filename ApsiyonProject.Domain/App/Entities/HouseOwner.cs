@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApsiyonProject.Domain.App.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Domain.App.Entities
 {
-    public class HouseOwner
+    public class HouseOwner : BaseEntitiy
     {
         public string Name { get; set; }
         public string SurName { get; set; }
