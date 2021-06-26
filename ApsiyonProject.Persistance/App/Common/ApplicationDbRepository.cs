@@ -6,46 +6,49 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using ApsiyonProject.Domain.App.Common;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApsiyonProject.Persistance.App.Common
 {
     public class ApplicationDbRepository<T> : IApplicationDbRepository<T> where T : BaseEntity
     {
         public readonly ApplicationDbContext _aplicationDbContext;
+        public DbSet<T> _entity;
 
         public ApplicationDbRepository(ApplicationDbContext aplicationDbContext)
         {
             _aplicationDbContext = aplicationDbContext;
+            _entity = aplicationDbContext.Set<T>();
         }
 
-        public Task<int> AddRangeAsync(List<T> typeList)
+        public async Task AddRangeAsync(List<T> typeList)
         {
-            throw new NotImplementedException();
+            await _entity.AddRangeAsync(typeList);
         }
 
-        public Task<int> AddTypeAsync(T type)
+        public async Task AddTypeAsync(T type)
         {
-            throw new NotImplementedException();
+            await _entity.AddAsync(type);
         }
 
-        public Task<List<T>> GetListAsync()
+        public async Task<List<T>> GetListAsync()
         {
-            throw new NotImplementedException();
+            return await _entity.ToListAsync();
         }
 
-        public Task<T> GetTypeAsync()
+        public async Task<T> GetTypeAsync()
         {
-            throw new NotImplementedException();
+            return await _entity.FirstOrDefaultAsync();
         }
 
-        public Task<T> GetWhereAsync(Expression<Func<T, bool>> expression)
+        public async Task<T> GetWhereAsync(Expression<Func<T, bool>> expression)
         {
-            throw new NotImplementedException();
+            return await _entity.Where(expression).FirstOrDefaultAsync();
         }
 
-        public Task<int> TruncateAsync()
+        public async Task TruncateAsync()
         {
-            throw new NotImplementedException();
+           _entity.RemoveRange(await _entity.ToListAsync());
         }
     }
 }
