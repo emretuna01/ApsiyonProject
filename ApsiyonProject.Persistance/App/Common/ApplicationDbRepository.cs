@@ -8,5 +8,6 @@ namespace ApsiyonProject.Persistance.App.Common
 {
     public class ApplicationDbRepository
     {
+
     }
 }
