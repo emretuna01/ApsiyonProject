@@ -33,9 +33,11 @@ namespace ApsiyonProject.Persistance.App.UnitOfWork
         public IFlatRepository Flat { get; }
         public IFloorRepository Floor { get; }
         public IHouseOwnerRepository HouseOwner { get; }
-        public async Task<IDbContextTransaction> BeginTransactionAsync()
-        {
-            return  await _applicationDbContext.Database.BeginTransactionAsync();
+        public async Task<int> SaveChangesAsync()
+        {     
+            return await _applicationDbContext.SaveChangesAsync();
         }
+
+
     }
 }
