@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Domain.App.Entities
 {
-    public class HouseOwner : BaseEntitiy
+    public class HouseOwner : BaseEntity
     {
         public string Name { get; set; }
         public string SurName { get; set; }

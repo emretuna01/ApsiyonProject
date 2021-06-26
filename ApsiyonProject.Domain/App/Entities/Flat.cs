@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Domain.App.Entities
 {
-    public class Flat : BaseEntitiy
+    public class Flat : BaseEntity
     {
         public string FlatNumer { get; set; }
         public Floor  Floor{ get; set; }

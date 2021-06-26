@@ -8,7 +8,7 @@ using ApsiyonProject.Domain.App.Common;
 
 namespace ApsiyonProject.Application.App.Common.Interfaces.DbRepository
 {
-    public interface IApplicationDbRepository<T> where T : BaseEntitiy
+    public interface IApplicationDbRepository<T> where T : BaseEntity
     {
         public Task<T> GetTypeAsync();
         public Task<List<T>> GetListAsync();

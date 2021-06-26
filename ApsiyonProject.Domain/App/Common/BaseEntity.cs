@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Domain.App.Common
 {
-    public class BaseEntitiy
+    public class BaseEntity
     {
         public Guid Id { get; set; }
         public DateTime CreatedDateTime { get; set; }
