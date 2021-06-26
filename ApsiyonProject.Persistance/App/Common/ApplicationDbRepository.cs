@@ -11,6 +11,13 @@ namespace ApsiyonProject.Persistance.App.Common
 {
     public class ApplicationDbRepository<T> : IApplicationDbRepository<T> where T : BaseEntity
     {
+        public readonly ApplicationDbContext _aplicationDbContext;
+
+        public ApplicationDbRepository(ApplicationDbContext aplicationDbContext)
+        {
+            _aplicationDbContext = aplicationDbContext;
+        }
+
         public Task<int> AddRangeAsync(List<T> typeList)
         {
             throw new NotImplementedException();

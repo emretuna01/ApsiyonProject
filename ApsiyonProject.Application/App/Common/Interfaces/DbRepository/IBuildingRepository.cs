@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Application.App.Common.Interfaces.DbRepository
 {
-    public interface IBuildingReposityory:IApplicationDbRepository<Building>
+    public interface IBuildingRepository:IApplicationDbRepository<Building>
     {
     }
 }
