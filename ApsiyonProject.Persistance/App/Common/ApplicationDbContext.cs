@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.DbContext;
+using ApsiyonProject.Domain.App.Entities;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,14 +10,22 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Persistance.App.Common
 {
-    public class ApplicationDbContext : IdentityDbContext, IApplicationDbContext
+    public class ApplicationDbContext : DbContext, IApplicationDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> dbContextOptions):base(dbContextOptions)
+        public ApplicationDbContext(DbContextOptions dbContextOptions):base(dbContextOptions)
         {
 
         }
 
-
+        public DbSet<Building> Buildings { get; set; }
+        public DbSet<BuildingStatus> BuildingStatuses { get; set; }
+        public DbSet<BuildingType> BuildingTypes { get; set; }
+        public DbSet<Car> Cars { get; set; }
+        public DbSet<Flat> Flats  { get; set; }
+        public DbSet<Floor> Floors { get; set; }
+        public DbSet<HouseOwner> HouseOwners { get; set; }
+        public DbSet<HouseOwner> HouseOwnerRoleClaims { get; set; }
+        public DbSet<HouseOwner> HouseOwnerRoles { get; set; }
 
     }
 }

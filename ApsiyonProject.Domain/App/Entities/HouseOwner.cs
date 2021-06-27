@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Domain.App.Entities
 {
+    //User
     public class HouseOwner : BaseEntity
     {
         public string Name { get; set; }
@@ -15,6 +16,8 @@ namespace ApsiyonProject.Domain.App.Entities
         public string Phone { get; set; }
         public ICollection<Flat> Flats { get; set; }
         public ICollection<Car> Cars{ get; set; }
+        public ICollection<HouseOwnerRoles> HouseOwnerRoles { get; set; }
+
 
     }
 }

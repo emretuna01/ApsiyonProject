@@ -1,3 +1,4 @@
+using ApsiyonProject.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -27,7 +28,9 @@ namespace ApsiyonProject.Infrastructure
         public void ConfigureServices(IServiceCollection services)
         {
 
+      
             services.AddControllers();
+            services.AddPersistanceService(Configuration);
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApsiyonProject.Infrastructure", Version = "v1" });
