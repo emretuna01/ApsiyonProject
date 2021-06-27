@@ -1,3 +1,4 @@
+using ApsiyonProject.Infrastructure.Controllers;
 using ApsiyonProject.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,7 +31,7 @@ namespace ApsiyonProject.Infrastructure
 
       
             services.AddControllers();
-            services.AddPersistanceService(Configuration);
+            services.AddPersistanceFundamentalService(Configuration);          
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ApsiyonProject.Infrastructure", Version = "v1" });
@@ -48,15 +49,9 @@ namespace ApsiyonProject.Infrastructure
             }
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
-
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints =>{endpoints.MapControllers();});
         }
     }
 }
