@@ -11,7 +11,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
     {
         public string BlockName { get; set; }
         public BuildingStatus BuildingStatus { get; set; }
-        public BuildingType BuildingType { get; set; }
-       
+        public BuildingType BuildingType { get; set; }        
+
     }
 }

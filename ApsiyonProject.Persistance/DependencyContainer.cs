@@ -37,10 +37,7 @@ namespace ApsiyonProject.Persistance
             serviceCollection.AddScoped<IBuildingCrudService, BuildingCrudService>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
 
-        }
-
-        //public static void AddPersistance
-
+        }        
 
     }
 }

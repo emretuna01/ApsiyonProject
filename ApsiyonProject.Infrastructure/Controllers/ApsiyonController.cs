@@ -24,5 +24,6 @@ namespace ApsiyonProject.Infrastructure.Controllers
         {
             return await _buildingCrudService.AddAsync(buildingDto); 
         }
+
     }
 }
