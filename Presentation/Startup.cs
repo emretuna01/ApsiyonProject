@@ -1,3 +1,6 @@
+using ApsiyonProject.Application;
+using ApsiyonProject.Infrastructure;
+using ApsiyonProject.Persistance;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -6,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -24,6 +28,9 @@ namespace Presentation
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddPersistanceFundamentalService(new ConfigurationBuilder().SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ApsiyonProject.Infrastructure")).AddJsonFile("appsettings.json").Build());
+            services.AddInfrastructureService();
+            services.AddApplicationDtoService();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

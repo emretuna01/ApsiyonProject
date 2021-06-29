@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
 using System.Reflection;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 
 namespace ApsiyonProject.Application
 {
@@ -16,6 +17,11 @@ namespace ApsiyonProject.Application
         {
            
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+        }
+        public static void AddApplicationDtoService(this IServiceCollection services)
+        {
+
+            services.AddScoped<BuildingDto>();
         }
 
     }

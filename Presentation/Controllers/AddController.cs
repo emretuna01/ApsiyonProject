@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Infrastructure.Controllers;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,8 +10,18 @@ namespace Presentation.Controllers
 {
     public class AddController : Controller
     {
-        public IActionResult Index()
+        private readonly ApsiyonController _apsiyonController;
+       // private readonly BuildingDto _buildingDto;
+
+        public AddController(ApsiyonController apsiyonController, BuildingDto buildingDto)
         {
+            _apsiyonController = apsiyonController;
+           // _buildingDto = buildingDto;
+        }
+       
+        public async Task<IActionResult> AddBuilding(BuildingDto buildingDto)
+        {
+            await _apsiyonController.AddBuilding(buildingDto);
             return View();
         }
     }
