@@ -14,6 +14,7 @@ namespace ApsiyonProject.Application
     {
         public static void AddApplicationService(this IServiceCollection services)
         {
+           
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
         }
 
