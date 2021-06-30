@@ -18,7 +18,12 @@ namespace Presentation.Controllers
             _apsiyonController = apsiyonController;
            // _buildingDto = buildingDto;
         }
-       
+        [HttpGet]
+        public IActionResult AddBuilding()
+        {   
+            return View();
+        }
+        [HttpPost]
         public async Task<IActionResult> AddBuilding(BuildingDto buildingDto)
         {
             await _apsiyonController.AddBuilding(buildingDto);

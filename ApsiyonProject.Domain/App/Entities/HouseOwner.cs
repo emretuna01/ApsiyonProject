@@ -10,6 +10,8 @@ namespace ApsiyonProject.Domain.App.Entities
     //User
     public class HouseOwner : BaseEntity
     {
+        public string Username{ get; set; }
+        public string Password { get; set; }
         public string Name { get; set; }
         public string SurName { get; set; }
         public string TCNo { get; set; }
