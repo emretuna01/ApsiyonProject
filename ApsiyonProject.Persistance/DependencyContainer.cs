@@ -35,6 +35,7 @@ namespace ApsiyonProject.Persistance
             serviceCollection.AddScoped<IHouseOwnerRolesRepository, HouseOwnerRolesRepository>();
             serviceCollection.AddApplicationService();
             serviceCollection.AddScoped<IBuildingCrudService, BuildingCrudService>();
+            serviceCollection.AddScoped<IHouseOwnerCrudService, HouseOwnerCrudService>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
 
         }

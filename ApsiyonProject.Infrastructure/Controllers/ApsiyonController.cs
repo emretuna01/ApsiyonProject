@@ -14,9 +14,11 @@ namespace ApsiyonProject.Infrastructure.Controllers
     public class ApsiyonController : ControllerBase
     {
         private readonly IBuildingCrudService _buildingCrudService;
-        public ApsiyonController(IBuildingCrudService buildingCrudService)
+        private readonly IHouseOwnerCrudService _houseOwnerCrudService;
+        public ApsiyonController(IBuildingCrudService buildingCrudService, IHouseOwnerCrudService houseOwnerCrudService)
         {
             _buildingCrudService = buildingCrudService;
+            _houseOwnerCrudService = houseOwnerCrudService;
         }
 
         [HttpPost("AddBuilding")]
@@ -25,5 +27,10 @@ namespace ApsiyonProject.Infrastructure.Controllers
             return await _buildingCrudService.AddAsync(buildingDto); 
         }
 
+        [HttpPost("AddHouseOwner")]
+        public async Task<int> AddHouseOwner(HouseOwnerDto houseOwnerDto)
+        {
+            return await _houseOwnerCrudService.AddAsync(houseOwnerDto);
+        }
     }
 }

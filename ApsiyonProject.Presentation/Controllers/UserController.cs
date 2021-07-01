@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Infrastructure.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,30 @@ namespace ApsiyonProject.Presentation.Controllers
 {
     public class UserController : Controller
     {
+        private readonly ApsiyonController _apsiyonController;
+        public UserController(ApsiyonController apsiyonController)
+        {
+            _apsiyonController = apsiyonController;
+        }
+
+
+        // GET: UserController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        public async Task<ActionResult> Create(HouseOwnerDto houseOwnerDto)
+        {
+            ViewBag.Count= await _apsiyonController.AddHouseOwner(houseOwnerDto);
+            return View();
+        }
+
+
+
+
+
+
         // GET: UserController
         public ActionResult Index()
         {
@@ -32,13 +57,9 @@ namespace ApsiyonProject.Presentation.Controllers
             return View();
         }
 
-        // GET: UserController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
+    
         // POST: UserController/Create
+        /*
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -52,7 +73,7 @@ namespace ApsiyonProject.Presentation.Controllers
                 return View();
             }
         }
-
+        */
         // GET: UserController/Edit/5
         public ActionResult Edit(int id)
         {
