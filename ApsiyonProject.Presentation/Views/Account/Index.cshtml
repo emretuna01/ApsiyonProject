@@ -9,7 +9,15 @@
     <title>Index</title>
 </head>
 <body>
-    @Html.RenderPartialAsync("GetBuildingList", Model)
-    @Html.RenderPartialAsync("GetFloorList", Model)
+    <div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                @{
+                    await Html.RenderPartialAsync("CreateBuilding", new BuildingDto());
+                }
+            </div>
+        </div>
+    </div>
+    @Html.ActionLink("Site Ekle", "CreateBuilding", "account", null, new { id = "open", data_toggle = "modal", data_target = "#showmodal", @class = "btn btn-primary" })
 </body>
 </html>

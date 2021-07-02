@@ -16,12 +16,12 @@ namespace ApsiyonProject.Presentation.Controllers
         {
             _apsiyonController = apsiyonController;
         }
-
-        //https://localhost:5001/Account/index      
+        
         public async Task<ActionResult> Index()
         {
             return View(await _apsiyonController.GetListIncludeBuildingAsync());
         }
+
         public async Task<ActionResult> GetBuildingList()
         {            
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
