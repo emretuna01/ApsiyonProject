@@ -13,7 +13,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
         public string BlockName { get; set; }
         public BuildingStatusDto BuildingStatus { get; set; }
         public BuildingTypeDto BuildingType { get; set; }
-        public List<FloorDto> Floors { get; set; }
+        public ICollection<FloorDto> Floors { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public bool IsActive { get; set; }
 

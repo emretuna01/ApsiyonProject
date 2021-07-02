@@ -24,7 +24,7 @@ namespace ApsiyonProject.Presentation.Controllers
 
         public async Task<ActionResult> GetBuildingList()
         {
-            ViewBag.BuildingType=_apsiyonController.
+            ViewBag.BuildingType = _apsiyonController.GetListBuildingStatusAsync();
 
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
         }

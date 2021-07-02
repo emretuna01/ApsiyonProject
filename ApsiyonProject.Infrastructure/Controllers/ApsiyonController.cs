@@ -15,10 +15,12 @@ namespace ApsiyonProject.Infrastructure.Controllers
     {
         private readonly IBuildingCrudService _buildingCrudService;
         private readonly IHouseOwnerCrudService _houseOwnerCrudService;
-        public ApsiyonController(IBuildingCrudService buildingCrudService, IHouseOwnerCrudService houseOwnerCrudService)
+        private readonly IBuildingStatusCrudService _buildingStatusCrudService;
+        public ApsiyonController(IBuildingCrudService buildingCrudService, IHouseOwnerCrudService houseOwnerCrudService, IBuildingStatusCrudService buildingStatusCrudService)
         {
             _buildingCrudService = buildingCrudService;
             _houseOwnerCrudService = houseOwnerCrudService;
+            _buildingStatusCrudService = buildingStatusCrudService;
         }
 
         public async Task<List<BuildingDto>> GetListIncludeBuildingAsync()
@@ -26,7 +28,10 @@ namespace ApsiyonProject.Infrastructure.Controllers
             return await _buildingCrudService.GetListIncludeAsync();
         }
 
-        public async Task<List<>>
+        public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
+        {
+            return await _buildingStatusCrudService.GetListBuildingStatusAsync();
+        }
 
 
         [HttpPost("AddBuilding")]
