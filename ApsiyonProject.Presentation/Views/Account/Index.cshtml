@@ -1,26 +1,17 @@
 ﻿@model IEnumerable<BuildingDto>
 
 
-<!DOCTYPE html>
+<div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div id="showmodal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                @{
-                    await Html.RenderPartialAsync("CreateBuilding", new BuildingDto());
-                }
-            </div>
+            @await Component.InvokeAsync("Building");
         </div>
     </div>
-    @Html.ActionLink("Site Ekle", "CreateBuilding", "account", null, new { id = "open", data_toggle = "modal", data_target = "#showmodal", @class = "btn btn-primary" })
-    
-    @Html.RenderPartialAsync("GetBuildingList", Model)
+</div>
 
-</body>
-</html>
+@Html.ActionLink("Site Ekle", "CreateBuilding", "account", null, new { id = "open", data_toggle = "modal", data_target = "#showmodal", @class = "btn btn-primary" })
+@Html.RenderPartialAsync("GetBuilding", Model)
+
+
+

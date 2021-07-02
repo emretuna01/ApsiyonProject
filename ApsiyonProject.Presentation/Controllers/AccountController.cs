@@ -24,34 +24,27 @@ namespace ApsiyonProject.Presentation.Controllers
 
         public async Task<ActionResult> GetBuildingList()
         {
-            ViewBag.BuildingType = _apsiyonController.GetListBuildingStatusAsync();
-
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
         }
-        [NonAction]
-        public ActionResult CreateBuilding()
+
+        public async Task<ActionResult> CreateBuilding()
         {
-            return View();
+            ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();
+            return ViewComponent("Building");
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
-        {
+        {           
             ViewBag.AddCountMessage = await _apsiyonController.AddBuildingAsync(buildingDto);
             return RedirectToAction("Index");
         }
-
-
-
 
         // GET: AccountController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
-
-        // GET: AccountController/Create
-
 
         // POST: AccountController/Create
         [HttpPost]

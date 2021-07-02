@@ -11,9 +11,11 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
     {
         public Guid Id { get; set; }
         public string BlockName { get; set; }
+        public string BuildingStatusId { get; set; }
+        public Guid BuildingTypeId { get; set; }
         public BuildingStatusDto BuildingStatus { get; set; }
         public BuildingTypeDto BuildingType { get; set; }
-        public ICollection<FloorDto> Floors { get; set; }
+        public List<FloorDto> Floors { get; set; }
         public DateTime CreatedDateTime { get; set; }
         public bool IsActive { get; set; }
 
