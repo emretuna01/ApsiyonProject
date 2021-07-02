@@ -1,5 +1,4 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Infrastructure.Controllers;
+﻿using ApsiyonProject.Infrastructure.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -9,57 +8,41 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Presentation.Controllers
 {
-    public class UserController : Controller
+    public class AccountController : Controller
     {
         private readonly ApsiyonController _apsiyonController;
-        public UserController(ApsiyonController apsiyonController)
+        public AccountController(ApsiyonController apsiyonController)
         {
             _apsiyonController = apsiyonController;
         }
 
-
-        // User/Create
-        public ActionResult Create()
+        //https://localhost:5001/Account/index      
+        public async Task<ActionResult> Index()
         {
-            return View();
+            return View(await _apsiyonController.GetBuildingAsync());
         }
-        [HttpPost]
-        public async Task<ActionResult> Create(HouseOwnerDto houseOwnerDto)
-        {
-            ViewBag.Count= await _apsiyonController.AddHouseOwner(houseOwnerDto);
-            return View();
+        public async Task<ActionResult> GetBuildingList()
+        {            
+            return PartialView(await _apsiyonController.GetBuildingAsync());
         }
 
 
 
+       
 
-
-
-        // GET: UserController
-        public ActionResult Index()
-        {
-            return View();
-        }
-
-        public ActionResult Login()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(UserLoginDto userLoginDto)
-        {
-            return View();
-        }
-
-        // GET: UserController/Details/5
+        // GET: AccountController/Details/5
         public ActionResult Details(int id)
         {
             return View();
         }
 
-    
-        // POST: UserController/Create
-        /*
+        // GET: AccountController/Create
+        public ActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: AccountController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(IFormCollection collection)
@@ -73,14 +56,14 @@ namespace ApsiyonProject.Presentation.Controllers
                 return View();
             }
         }
-        */
-        // GET: UserController/Edit/5
+
+        // GET: AccountController/Edit/5
         public ActionResult Edit(int id)
         {
             return View();
         }
 
-        // POST: UserController/Edit/5
+        // POST: AccountController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(int id, IFormCollection collection)
@@ -95,13 +78,13 @@ namespace ApsiyonProject.Presentation.Controllers
             }
         }
 
-        // GET: UserController/Delete/5
+        // GET: AccountController/Delete/5
         public ActionResult Delete(int id)
         {
             return View();
         }
 
-        // POST: UserController/Delete/5
+        // POST: AccountController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(int id, IFormCollection collection)

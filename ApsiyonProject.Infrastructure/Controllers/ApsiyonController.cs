@@ -21,8 +21,14 @@ namespace ApsiyonProject.Infrastructure.Controllers
             _houseOwnerCrudService = houseOwnerCrudService;
         }
 
+        public async Task<List<BuildingDto>> GetBuildingAsync()
+        {
+            return await _buildingCrudService.GetListAsync();
+        }
+
+
         [HttpPost("AddBuilding")]
-        public async Task<int>  AddBuilding(BuildingDto buildingDto)
+        public async Task<int>  AddBuildingAsync(BuildingDto buildingDto)
         {
             return await _buildingCrudService.AddAsync(buildingDto); 
         }

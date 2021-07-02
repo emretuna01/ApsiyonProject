@@ -1,0 +1,20 @@
+﻿@model List<BuildingDto>
+
+
+<div>
+    <h4>BuildingDto</h4>
+    <hr />
+    @foreach (var item in Model)
+    {
+        <dl class="row">
+            <dt class="col-sm-2">
+                <label>@item.BlockName</label>
+            </dt>            
+        </dl>        
+    }
+
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
