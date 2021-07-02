@@ -29,9 +29,9 @@ namespace ApsiyonProject.Persistance.App.Services
             return await _unitOfWork.SaveChangesAsync();
         }
 
-        public async Task<List<BuildingDto>> GetListAsync()
+        public async Task<List<BuildingDto>> GetListIncludeAsync()
         {
-            var preMappedData=  await _unitOfWork.Building.GetListAsync();
+            var preMappedData=  await _unitOfWork.Building.GetBuildingsIncludeAsync();
             return _mapper.Map<List<BuildingDto>>(preMappedData);
         }
     }

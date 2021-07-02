@@ -1,4 +1,6 @@
-﻿@model List<BuildingDto>
+﻿@model IEnumerable<BuildingDto>
+
+
 <!DOCTYPE html>
 
 <html>
@@ -7,7 +9,6 @@
     <title>Index</title>
 </head>
 <body>
-    @Html.RenderPartialAsync("GetBuildingList", Model);
-
+    @Html.RenderPartialAsync("GetBuildingList", Model)
 </body>
 </html>

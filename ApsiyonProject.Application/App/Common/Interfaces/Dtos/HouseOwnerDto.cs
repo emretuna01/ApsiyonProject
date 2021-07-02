@@ -14,6 +14,9 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
         public string SurName { get; set; }
         public string TCNo { get; set; }
         public string Phone { get; set; }
+        public ICollection<FlatDto> Flats { get; set; }
+        public ICollection<CarDto> Cars { get; set; }
+        
 
     }
 }

@@ -21,9 +21,9 @@ namespace ApsiyonProject.Infrastructure.Controllers
             _houseOwnerCrudService = houseOwnerCrudService;
         }
 
-        public async Task<List<BuildingDto>> GetBuildingAsync()
+        public async Task<List<BuildingDto>> GetListIncludeBuildingAsync()
         {
-            return await _buildingCrudService.GetListAsync();
+            return await _buildingCrudService.GetListIncludeAsync();
         }
 
 

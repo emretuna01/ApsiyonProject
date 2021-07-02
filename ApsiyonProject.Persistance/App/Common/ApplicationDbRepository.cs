@@ -24,8 +24,10 @@ namespace ApsiyonProject.Persistance.App.Common
         public async Task AddRangeAsync(List<T> typeList)
         {
             await _entity.AddRangeAsync(typeList);
+          
         }
 
+       
         public async Task AddTypeAsync(T type)
         {
             await _entity.AddAsync(type);

@@ -11,7 +11,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services
     public interface IBuildingCrudService
     {
         public Task<int> AddAsync(BuildingDto entity);
-        public Task<List<BuildingDto>> GetListAsync();
+        public Task<List<BuildingDto>> GetListIncludeAsync();
         //void Delete(int id);
         //void Update(BuildingDto entity);
         //Task<List<BuildingDto>> GetAll();

@@ -1,4 +1,4 @@
-﻿@model IEnumerable<BuildingDto>
+﻿@model IEnumerable<Floors>
 
 
 
@@ -6,7 +6,7 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.BlockName)
+                @Html.DisplayNameFor(model => model.Floors.f)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.BuildingStatus.Status)
@@ -38,4 +38,3 @@
         }
     </tbody>
 </table>
-
