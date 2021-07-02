@@ -8,6 +8,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
 {
     public class HouseOwnerDto
     {
+        public Guid Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }
@@ -16,7 +17,9 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
         public string Phone { get; set; }
         public ICollection<FlatDto> Flats { get; set; }
         public ICollection<CarDto> Cars { get; set; }
-        
+        public DateTime CreatedDateTime { get; set; }
+        public bool IsActive { get; set; }
+
 
     }
 }

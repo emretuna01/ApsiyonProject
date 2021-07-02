@@ -19,5 +19,8 @@
         </div>
     </div>
     @Html.ActionLink("Site Ekle", "CreateBuilding", "account", null, new { id = "open", data_toggle = "modal", data_target = "#showmodal", @class = "btn btn-primary" })
+    
+    @Html.RenderPartialAsync("GetBuildingList", Model)
+
 </body>
 </html>

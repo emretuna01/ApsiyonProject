@@ -16,27 +16,29 @@ namespace ApsiyonProject.Presentation.Controllers
         {
             _apsiyonController = apsiyonController;
         }
-        
+
         public async Task<ActionResult> Index()
         {
             return View(await _apsiyonController.GetListIncludeBuildingAsync());
         }
 
         public async Task<ActionResult> GetBuildingList()
-        {            
+        {
+            ViewBag.BuildingType=_apsiyonController.
+
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
         }
-       
-        public  ActionResult CreateBuilding()
-        {        
+        [NonAction]
+        public ActionResult CreateBuilding()
+        {
             return View();
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
         {
-           ViewBag.AddCountMessage=  await _apsiyonController.AddBuildingAsync(buildingDto);
-            return View();
+            ViewBag.AddCountMessage = await _apsiyonController.AddBuildingAsync(buildingDto);
+            return RedirectToAction("Index");
         }
 
 
