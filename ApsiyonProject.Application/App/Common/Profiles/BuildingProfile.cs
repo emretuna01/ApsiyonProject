@@ -13,7 +13,9 @@ namespace ApsiyonProject.Application.App.Common.Profiles
     {
         public BuildingProfile()
         {
-            CreateMap<Building, BuildingDto>().ReverseMap();
+            CreateMap<Building, BuildingDto>()
+                .ForMember(p => p.Floors,destinationMember => destinationMember.MapFrom(z => z.Floors))                
+                .ReverseMap();
         }
     }
 }

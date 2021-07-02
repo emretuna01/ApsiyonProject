@@ -1,4 +1,5 @@
-﻿using ApsiyonProject.Infrastructure.Controllers;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Infrastructure.Controllers;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -25,10 +26,21 @@ namespace ApsiyonProject.Presentation.Controllers
         {            
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
         }
-
-
-
        
+        public  ActionResult CreateBuilding()
+        {        
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
+        {
+           ViewBag.AddCountMessage=  await _apsiyonController.AddBuildingAsync(buildingDto);
+            return View();
+        }
+
+
+
 
         // GET: AccountController/Details/5
         public ActionResult Details(int id)
@@ -37,10 +49,7 @@ namespace ApsiyonProject.Presentation.Controllers
         }
 
         // GET: AccountController/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+
 
         // POST: AccountController/Create
         [HttpPost]
