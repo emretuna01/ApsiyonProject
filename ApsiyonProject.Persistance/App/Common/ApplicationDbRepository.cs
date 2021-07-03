@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ApsiyonProject.Domain.App.Common;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 
 namespace ApsiyonProject.Persistance.App.Common
 {
@@ -26,11 +27,16 @@ namespace ApsiyonProject.Persistance.App.Common
             await _entity.AddRangeAsync(typeList);
           
         }
-
-       
+               
         public async Task AddTypeAsync(T type)
         {
             await _entity.AddAsync(type);
+        }
+
+        public async Task<EntityEntry<T>> AddTypeWithReturnAsync(T type)
+        {
+          return  await _entity.AddAsync(type);
+            
         }
 
         public async Task<List<T>> GetListAsync()
@@ -49,12 +55,18 @@ namespace ApsiyonProject.Persistance.App.Common
         }
         public async Task<T> GetWhereAsync(Guid id)
         {
-            return await _entity.Where(p =>p.Id==id && p.IsActive==true).FirstOrDefaultAsync();
+            return await _entity.Where(p =>p.Id==id).FirstOrDefaultAsync();
         }
+
+        public void Update(T type)
+        {             
+            _entity.Update(type);           
+        }
+
 
         public async Task TruncateAsync()
         {
-           _entity.RemoveRange(await _entity.ToListAsync());
+           _entity.RemoveRange(await _entity.ToListAsync());            
         }
     }
 }

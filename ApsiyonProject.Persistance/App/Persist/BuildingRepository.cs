@@ -28,5 +28,13 @@ namespace ApsiyonProject.Persistance.App.Persist
                 .ThenInclude(p => p.HouseOwner).ToListAsync();
         }
 
+        public async Task<int> CustomUpdate(Building building)
+        {
+            string preUpdatedValue = building.BuildingStatus.Id.ToString();
+            string dbRowId = building.Id.ToString();
+            string sqlString = $"UPDATE [ApsiyonProject].[dbo].[Buildings] SET BuildingStatusId = cast('{preUpdatedValue}' AS UNIQUEIDENTIFIER) WHERE[dbo].[Buildings].[Id] = cast('{dbRowId}' AS UNIQUEIDENTIFIER)";
+            return await _aplicationDbContext.Database.ExecuteSqlRawAsync(sqlString);
+        }
+
     }
 }

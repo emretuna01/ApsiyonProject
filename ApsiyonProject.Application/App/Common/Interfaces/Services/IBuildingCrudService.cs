@@ -12,6 +12,9 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services
     {
         public Task<int> AddAsync(BuildingDto entity);
         public Task<List<BuildingDto>> GetListIncludeAsync();
+        public Task<BuildingDto> GetBuildingByIdAsync(Guid id);
+
+
         //void Delete(int id);
         //void Update(BuildingDto entity);
         //Task<List<BuildingDto>> GetAll();
