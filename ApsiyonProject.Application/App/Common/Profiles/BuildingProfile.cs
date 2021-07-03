@@ -18,6 +18,7 @@ namespace ApsiyonProject.Application.App.Common.Profiles
             .ForMember(p => p.BuildingType, destinationMember => destinationMember.Ignore());
             CreateMap<BuildingDto, BuildingUpdateDto>().ReverseMap();                        
             CreateMap<BuildingUpdateDto,Building>().ReverseMap();
+            CreateMap<Building, DefaultBuildingDto>().ReverseMap();
             
             /*
             .ForMember(p => p.BuildingStatus, destinationMember => destinationMember.MapFrom(z => z.BuildingStatus))         

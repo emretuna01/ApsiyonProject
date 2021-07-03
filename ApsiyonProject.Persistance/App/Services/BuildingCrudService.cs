@@ -56,11 +56,11 @@ namespace ApsiyonProject.Persistance.App.Services
             var preMappedData = await _unitOfWork.Building.GetBuildingsIncludeAsync();
             return _mapper.Map<List<BuildingDto>>(preMappedData);
         }
-        
-        public async Task Update()
+        public async Task<List<Building>> GetRawListIncludeAsync()
         {
-
+            return await _unitOfWork.Building.GetBuildingsIncludeAsync();            
         }
+
 
     }
 }

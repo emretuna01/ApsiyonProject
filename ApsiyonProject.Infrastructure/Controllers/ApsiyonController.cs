@@ -1,5 +1,6 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
+using ApsiyonProject.Domain.App.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -23,21 +24,28 @@ namespace ApsiyonProject.Infrastructure.Controllers
             _buildingStatusCrudService = buildingStatusCrudService;
         }
 
+        [HttpGet("GetRawListIncludeBuilding")] 
+        public async Task<List<Building>> GetRawListIncludeBuildingAsync()
+        {
+            return await _buildingCrudService.GetRawListIncludeAsync();
+        }
+
+        [HttpGet("GetListIncludeBuilding")]
         public async Task<List<BuildingDto>> GetListIncludeBuildingAsync()
         {
             return await _buildingCrudService.GetListIncludeAsync();
         }
 
+        [HttpGet("GetListBuildingStatus")]
         public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
         {
             return await _buildingStatusCrudService.GetListBuildingStatusAsync();
         }
 
-
         [HttpPost("AddBuilding")]
-        public async Task<int>  AddBuildingAsync(BuildingDto buildingDto)
+        public async Task<int> AddBuildingAsync(BuildingDto buildingDto)
         {
-            return await _buildingCrudService.AddAsync(buildingDto); 
+            return await _buildingCrudService.AddAsync(buildingDto);
         }
 
         [HttpPost("AddHouseOwner")]
