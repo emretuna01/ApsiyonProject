@@ -27,10 +27,10 @@ namespace ApsiyonProject.Presentation.Controllers
             return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
         }
 
-        public async Task<ActionResult> CreateBuilding()
+        public ActionResult CreateBuilding()
         {
-            ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();
-            return ViewComponent("Building");
+           // ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();
+            return ViewComponent("Building");            
         }
 
         [HttpPost]

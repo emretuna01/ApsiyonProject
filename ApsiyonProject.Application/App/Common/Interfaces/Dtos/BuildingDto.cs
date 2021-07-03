@@ -11,7 +11,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
     {
         public Guid Id { get; set; }
         public string BlockName { get; set; }
-        public string BuildingStatusId { get; set; }
+        public Guid BuildingStatusId { get; set; }
         public Guid BuildingTypeId { get; set; }
         public BuildingStatusDto BuildingStatus { get; set; }
         public BuildingTypeDto BuildingType { get; set; }

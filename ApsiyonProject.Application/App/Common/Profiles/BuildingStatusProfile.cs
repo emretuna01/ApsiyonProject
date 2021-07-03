@@ -13,7 +13,7 @@ namespace ApsiyonProject.Application.App.Common.Profiles
     {
         public BuildingStatusProfile()
         {
-            CreateMap<BuildingStatus, BuildingStatusDto>();
+            CreateMap<BuildingStatus, BuildingStatusDto>().ReverseMap();
         }
     }
 }

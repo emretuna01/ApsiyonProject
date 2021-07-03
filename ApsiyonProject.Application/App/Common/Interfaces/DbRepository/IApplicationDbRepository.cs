@@ -12,7 +12,8 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.DbRepository
     {
         public Task<T> GetTypeAsync();
         public Task<List<T>> GetListAsync();
-        public Task<T> GetWhereAsync(Expression<Func<T,bool>> expression);        
+        public Task<T> GetWhereAsync(Expression<Func<T,bool>> expression);
+        public Task<T> GetWhereAsync(Guid id);
         public Task AddTypeAsync(T type);
         public Task AddRangeAsync(List<T> typeList);
         public Task TruncateAsync();

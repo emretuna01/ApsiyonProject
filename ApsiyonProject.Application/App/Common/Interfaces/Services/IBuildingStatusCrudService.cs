@@ -12,5 +12,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services
     {
         public Task<List<BuildingStatusDto>> GetListBuildingStatusAsync();
         public Task<int> CreateListBuildingStatusAsync(BuildingStatusDto buildingStatus);
+        public Task<BuildingStatusDto> GetBuildingStatusByIdAsync(Guid id);
+
     }
 }

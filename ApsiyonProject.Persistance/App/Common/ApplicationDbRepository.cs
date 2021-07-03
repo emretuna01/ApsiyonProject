@@ -47,6 +47,10 @@ namespace ApsiyonProject.Persistance.App.Common
         {
             return await _entity.Where(expression).FirstOrDefaultAsync();
         }
+        public async Task<T> GetWhereAsync(Guid id)
+        {
+            return await _entity.Where(p =>p.Id==id && p.IsActive==true).FirstOrDefaultAsync();
+        }
 
         public async Task TruncateAsync()
         {

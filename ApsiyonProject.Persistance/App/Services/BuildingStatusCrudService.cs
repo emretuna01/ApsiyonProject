@@ -30,6 +30,12 @@ namespace ApsiyonProject.Persistance.App.Services
             return await _unitOfWork.SaveChangesAsync();
         }
 
+        public async Task<BuildingStatusDto> GetBuildingStatusByIdAsync(Guid id)
+        {
+            var preMappedData = await _unitOfWork.BuildingStatus.GetWhereAsync(id);
+            return _mapper.Map<BuildingStatusDto>(preMappedData);
+        }
+
         public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
         {
             var preMappedData = await _unitOfWork.BuildingStatus.GetListAsync();

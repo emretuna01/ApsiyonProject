@@ -16,14 +16,17 @@ namespace ApsiyonProject.Persistance.App.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly IBuildingStatusCrudService _buildingStatusCrudService;
 
-        public BuildingCrudService(IMapper mapper, IUnitOfWork unitOfWork)
+        public BuildingCrudService(IMapper mapper, IUnitOfWork unitOfWork, IBuildingStatusCrudService buildingStatusCrudService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _buildingStatusCrudService = buildingStatusCrudService;
         }
         public async Task<int> AddAsync(BuildingDto entity)
         {
+            entity.BuildingStatus= await _buildingStatusCrudService.GetBuildingStatusByIdAsync(entity.BuildingStatusId);            
             var mappedData = _mapper.Map<Building>(entity);
             await _unitOfWork.Building.AddTypeAsync(mappedData);
             return await _unitOfWork.SaveChangesAsync();
@@ -34,5 +37,7 @@ namespace ApsiyonProject.Persistance.App.Services
             var preMappedData=  await _unitOfWork.Building.GetBuildingsIncludeAsync();
             return _mapper.Map<List<BuildingDto>>(preMappedData);
         }
+
+
     }
 }

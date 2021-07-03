@@ -1,40 +1,31 @@
 ﻿@model BuildingDto
 
 
-<!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>CreateBuilding</title>
-</head>
-<body>
+<div class="modal-header">
+    <h4 class="modal-title">BuildingDto</h4>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+</div>
+<div class="modal-body">
+    <form asp-action="CreateBuilding">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="BlockName" class="control-label"></label>
+            <input asp-for="BlockName" class="form-control" />
+            <span asp-validation-for="BlockName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="BuildingStatusId" class="control-label"></label>
+            <select asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
+                <option>Birini Seçin</option>
+            </select>
+            <span asp-validation-for="BuildingStatus" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Create" class="btn btn-primary" />
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+    </form>
+</div>
 
-    <div class="modal-header">
-        <h4 class="modal-title">BuildingDto</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    </div>
-    <div class="modal-body">
-        <form asp-action="CreateBuilding">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="BlockName" class="control-label"></label>
-                <input asp-for="BlockName" class="form-control" />
-                <span asp-validation-for="BlockName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BuildingStatusId" class="control-label"></label>
-                <select asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
-                    <option>Birini Seçin</option>
-                </select>
-                <span asp-validation-for="BuildingStatus" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        </form>
-    </div>
 
-</body>
-</html>
