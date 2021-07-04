@@ -18,7 +18,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork
         public IFloorRepository Floor { get; }
         public IHouseOwnerRepository HouseOwner { get; }
         public IHouseOwnerRoleClaimsRepository HouseOwnerRoleClaims { get; }
-        public IHouseOwnerRolesRepository HouseOwnerRoles { get; }
+        public IHouseOwnerRolesRepository HouseOwnerRoles { get; }        
         public Task<int> SaveChangesAsync();
 
     }

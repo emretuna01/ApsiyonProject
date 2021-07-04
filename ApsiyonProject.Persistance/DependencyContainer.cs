@@ -37,7 +37,9 @@ namespace ApsiyonProject.Persistance
             serviceCollection.AddScoped<IBuildingCrudService, BuildingCrudService>();
             serviceCollection.AddScoped<IHouseOwnerCrudService, HouseOwnerCrudService>();
             serviceCollection.AddScoped<IBuildingStatusCrudService, BuildingStatusCrudService>();
+            serviceCollection.AddScoped<IBuildingTypeCrudService, BuildingTypeCrudService>();
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
+            
 
         }
 

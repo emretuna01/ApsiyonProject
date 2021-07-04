@@ -11,13 +11,11 @@ namespace ApsiyonProject.Presentation.ViewComponents
 {
     public class GetBuildingListViewComponent : ViewComponent
     {
-        private readonly ApsiyonController _apsiyonController;
-        private readonly DefaultBuildingDto _defaultBuildingDto;
+        private readonly ApsiyonController _apsiyonController;        
         private readonly IMapper _mapper;
-        public GetBuildingListViewComponent(ApsiyonController apsiyonController, BuildingDto buildingDto, DefaultBuildingDto defaultBuildingDto, IMapper mapper)
+        public GetBuildingListViewComponent(ApsiyonController apsiyonController, BuildingDto buildingDto, IMapper mapper)
         {
-            _apsiyonController = apsiyonController;
-            _defaultBuildingDto = defaultBuildingDto;
+            _apsiyonController = apsiyonController;            
             _mapper = mapper;
         }
 

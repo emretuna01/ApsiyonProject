@@ -19,7 +19,8 @@ namespace ApsiyonProject.Presentation.ViewComponents
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {           
-            ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();                 
+            ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();
+            ViewBag.BuildingType = await _apsiyonController.GetListBuildingTypeAsync();
             return View(_buildingDto);
         }
     }

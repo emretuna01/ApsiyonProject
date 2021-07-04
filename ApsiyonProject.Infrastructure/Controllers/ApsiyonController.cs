@@ -17,11 +17,13 @@ namespace ApsiyonProject.Infrastructure.Controllers
         private readonly IBuildingCrudService _buildingCrudService;
         private readonly IHouseOwnerCrudService _houseOwnerCrudService;
         private readonly IBuildingStatusCrudService _buildingStatusCrudService;
-        public ApsiyonController(IBuildingCrudService buildingCrudService, IHouseOwnerCrudService houseOwnerCrudService, IBuildingStatusCrudService buildingStatusCrudService)
+        private readonly IBuildingTypeCrudService _buildingTypeCrudService;
+        public ApsiyonController(IBuildingCrudService buildingCrudService, IHouseOwnerCrudService houseOwnerCrudService, IBuildingStatusCrudService buildingStatusCrudService, IBuildingTypeCrudService buildingTypeCrudService)
         {
             _buildingCrudService = buildingCrudService;
             _houseOwnerCrudService = houseOwnerCrudService;
             _buildingStatusCrudService = buildingStatusCrudService;
+            _buildingTypeCrudService = buildingTypeCrudService;
         }
 
         [HttpGet("GetRawListIncludeBuilding")] 
@@ -40,6 +42,12 @@ namespace ApsiyonProject.Infrastructure.Controllers
         public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
         {
             return await _buildingStatusCrudService.GetListBuildingStatusAsync();
+        }
+
+        [HttpGet("GetListBuildingType")]
+        public async Task<List<BuildingTypeDto>> GetListBuildingTypeAsync()
+        {
+            return await _buildingTypeCrudService.GetListBuildingTypeAsync();
         }
 
         [HttpPost("AddBuilding")]

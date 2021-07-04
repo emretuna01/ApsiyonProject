@@ -42,5 +42,7 @@ namespace ApsiyonProject.Persistance.App.Services
             var preMappedData = await _unitOfWork.BuildingStatus.GetListAsync();
             return _mapper.Map<List<BuildingStatusDto>>(preMappedData);
         }
+
+
     }
 }
