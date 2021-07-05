@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Infrastructure.Controllers;
+using ApsiyonProject.Infrastructure.Controllers.Building;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,8 @@ namespace ApsiyonProject.Infrastructure
         public static void AddInfrastructureService(this IServiceCollection service)
         {
             service.AddScoped<ApsiyonController>();
+            service.AddScoped<BuildingStatusApiController>();
+            
         }
 
 

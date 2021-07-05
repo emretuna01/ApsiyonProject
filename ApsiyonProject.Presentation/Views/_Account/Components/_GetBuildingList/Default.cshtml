@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DefaultBuildingDto>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Action
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BlockName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildingStatus.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BuildingType.Type)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlockName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildingStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildingType.Type)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

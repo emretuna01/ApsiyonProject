@@ -11,7 +11,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services
     public interface IBuildingStatusCrudService
     {
         public Task<List<BuildingStatusDto>> GetListBuildingStatusAsync();
-        public Task<int> CreateListBuildingStatusAsync(BuildingStatusDto buildingStatus);
+        public Task<int> CreateBuildingStatusAsync(BuildingStatusDto buildingStatus);
         public Task<BuildingStatusDto> GetBuildingStatusByIdAsync(Guid id);
 
     }

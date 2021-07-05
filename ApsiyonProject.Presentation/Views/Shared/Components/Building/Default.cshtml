@@ -1,5 +1,18 @@
 ﻿@model BuildingDto
 
+    <style>
+        .modal2{
+            left:-30%;
+        }
+    </style>
+
+<div id="showmodal2" class="modal fade modal2" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            @await Component.InvokeAsync("BuildingStatus");
+        </div>
+    </div>
+</div>
 
 
 <div class="modal-header">
@@ -16,15 +29,15 @@
         </div>
         <div class="form-group">
             <label asp-for="BuildingStatusId" class="control-label">Site Durumu</label>
-            @Html.ActionLink("Site Durumu Ekle", "", "", null, new { @class = "btn btn-primary btn-xs",style= "padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; margin-left:3%;" })
+            <a id="open" data-toggle="modal" data-target="#showmodal2" asp-action="CreateBuildingStatus" asp-controller="BuildingStatus" class="btn btn-primary btn-xs form-control" style="padding-top: 1%; padding-bottom: 0px; padding-left: 0px; padding-right: 0px">Site Durumu Ekle</a>            
             <select class="form-control" asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
-                <option disabled selected >Lütfen Birini Seçin</option>
+                <option disabled selected>Lütfen Birini Seçin</option>
             </select>
             <span asp-validation-for="BuildingStatus" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="BuildingTypeId" class="control-label">Site Tipi</label>
-            @Html.ActionLink("Site Tipi Ekle", "", "", null, new { @class = "btn btn-primary btn-xs", style = "padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; margin-left:3%;" })
+            <a asp-action="" asp-controller="" class="btn btn-primary btn-xs form-control" style="padding-top: 1%; padding-bottom: 0px; padding-left: 0px; padding-right: 0px">Site Tipi Ekle</a>
             <select class="form-control" asp-for="BuildingTypeId" asp-items="@(new SelectList(ViewBag.BuildingType,"Id","Type"))">
                 <option disabled selected>Lütfen Birini Seçin</option>
             </select>

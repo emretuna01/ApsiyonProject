@@ -23,7 +23,7 @@ namespace ApsiyonProject.Persistance.App.Services
             _mapper = mapper;
         }
 
-        public async Task<int> CreateListBuildingStatusAsync(BuildingStatusDto entity)
+        public async Task<int> CreateBuildingStatusAsync(BuildingStatusDto entity)
         {
             var mappedData = _mapper.Map<BuildingStatus>(entity);
             await _unitOfWork.BuildingStatus.AddTypeAsync(mappedData);            
