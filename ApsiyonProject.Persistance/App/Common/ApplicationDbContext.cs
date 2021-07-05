@@ -22,10 +22,12 @@ namespace ApsiyonProject.Persistance.App.Common
         public DbSet<BuildingType> BuildingTypes { get; set; }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Flat> Flats  { get; set; }
+        public DbSet<FlatType> FlatTypes { get; set; }
+        public DbSet<FlatStatus> FlatStatuses{ get; set; }
         public DbSet<Floor> Floors { get; set; }
         public DbSet<HouseOwner> HouseOwners { get; set; }
-        public DbSet<HouseOwner> HouseOwnerRoleClaims { get; set; }
-        public DbSet<HouseOwner> HouseOwnerRoles { get; set; }
+        public DbSet<HouseOwnerRoleClaims> HouseOwnerRoleClaims { get; set; }
+        public DbSet<HouseOwnerRoles> HouseOwnerRoles { get; set; }
 
     }
 }
