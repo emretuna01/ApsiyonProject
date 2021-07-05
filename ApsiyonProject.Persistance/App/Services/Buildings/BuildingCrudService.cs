@@ -1,6 +1,6 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
+using ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
 using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;

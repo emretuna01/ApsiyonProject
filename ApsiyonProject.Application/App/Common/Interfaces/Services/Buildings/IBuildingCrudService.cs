@@ -8,7 +8,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Interfaces.Services
+namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings
 {
     public interface IBuildingCrudService
     {

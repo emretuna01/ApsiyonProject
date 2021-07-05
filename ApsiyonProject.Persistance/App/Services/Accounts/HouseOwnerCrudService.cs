@@ -11,7 +11,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Persistance.App.Services
+namespace ApsiyonProject.Persistance.App.Services.Accounts
 {
     public class HouseOwnerCrudService : IHouseOwnerCrudService
     {

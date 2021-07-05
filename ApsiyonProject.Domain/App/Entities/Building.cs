@@ -18,6 +18,8 @@ namespace ApsiyonProject.Domain.App.Entities
         [ForeignKey("BuildingTypeId")]
         public BuildingType BuildingType{ get; set; }
         public ICollection<Floor> Floors { get; set; }
+        public Guid AdministratorId { get; set; }
+        [ForeignKey("AdministratorId")]
         public HouseOwner Administrator { get; set; }
     }
 }

@@ -1,11 +1,14 @@
 ﻿using ApsiyonProject.Application;
 using ApsiyonProject.Application.App.Common.Interfaces.DbRepository;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
+using ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
-using ApsiyonProject.Domain.App.Entities;
 using ApsiyonProject.Persistance.App.Common;
 using ApsiyonProject.Persistance.App.Persist;
 using ApsiyonProject.Persistance.App.Services;
+using ApsiyonProject.Persistance.App.Services.Accounts;
+using ApsiyonProject.Persistance.App.Services.Buildings;
+using ApsiyonProject.Persistance.App.Services.Buildings.Buildings;
 using ApsiyonProject.Persistance.App.UnitOfWork;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;

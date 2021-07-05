@@ -14,6 +14,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings
         public string BlockName { get; set; }
         public Guid BuildingStatusId { get; set; }
         public Guid BuildingTypeId { get; set; }
+        public Guid AdministratorId { get; set; }
 
     }
 }
