@@ -1,4 +1,4 @@
-﻿@model BuildingDto
+﻿@model AddBuildingDto
 
     <style>
         .modal2{
@@ -33,7 +33,7 @@
             <select class="form-control" asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
                 <option disabled selected>Lütfen Birini Seçin</option>
             </select>
-            <span asp-validation-for="BuildingStatus" class="text-danger"></span>
+            <span asp-validation-for="BuildingStatusId" class="text-danger"></span>
         </div>
         <div class="form-group">
             <label asp-for="BuildingTypeId" class="control-label">Site Tipi</label>
@@ -41,7 +41,7 @@
             <select class="form-control" asp-for="BuildingTypeId" asp-items="@(new SelectList(ViewBag.BuildingType,"Id","Type"))">
                 <option disabled selected>Lütfen Birini Seçin</option>
             </select>
-            <span asp-validation-for="BuildingStatus" class="text-danger"></span>
+            <span asp-validation-for="BuildingTypeId" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-primary" />

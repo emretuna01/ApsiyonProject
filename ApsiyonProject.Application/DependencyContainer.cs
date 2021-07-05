@@ -9,7 +9,7 @@ using AutoMapper;
 using System.Reflection;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
-using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Building;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 
 namespace ApsiyonProject.Application
 {

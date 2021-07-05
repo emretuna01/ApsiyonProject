@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.Building
+namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings
 {
     public class AddBuildingDto 
     {

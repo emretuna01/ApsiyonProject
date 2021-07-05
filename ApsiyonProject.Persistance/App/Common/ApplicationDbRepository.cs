@@ -31,13 +31,7 @@ namespace ApsiyonProject.Persistance.App.Common
         public async Task AddTypeAsync(T type)
         {
             await _entity.AddAsync(type);
-        }
-
-        public async Task<EntityEntry<T>> AddTypeWithReturnAsync(T type)
-        {
-          return  await _entity.AddAsync(type);
-            
-        }
+        }  
 
         public async Task<List<T>> GetListAsync()
         {

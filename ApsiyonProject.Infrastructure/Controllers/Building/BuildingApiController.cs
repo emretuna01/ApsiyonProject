@@ -1,5 +1,4 @@
-﻿using BuildingEntities = ApsiyonProject.Domain.App.Entities;
-using ApsiyonProject.Application.App.Common.Interfaces.Services;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -7,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 
 namespace ApsiyonProject.Infrastructure.Controllers.Building
 {
@@ -20,6 +20,14 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
         {
             _buildingCrudService = buildingCrudService;
         }
+
+        [HttpPost("AddBuilding")]
+        public async Task<int> AddBuildingAsync(AddBuildingDto addBuildingDto)
+        {
+            return await _buildingCrudService.AddAsync(addBuildingDto);
+        }
+        
+        /*
         [HttpGet("GetRawListIncludeBuilding")]
         public async Task<List<BuildingEntities.Building>> GetRawListIncludeBuildingAsync()
         {
@@ -31,11 +39,7 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
         {
             return await _buildingCrudService.GetListIncludeAsync();
         }
+        */
 
-        [HttpPost("AddBuilding")]
-        public async Task<int> AddBuildingAsync(BuildingDto buildingDto)
-        {
-            return await _buildingCrudService.AddAsync(buildingDto);
-        }
     }
 }

@@ -14,7 +14,7 @@ namespace ApsiyonProject.Persistance.App.UnitOfWork
     {
         private readonly ApplicationDbContext _applicationDbContext;
 
-        public UnitOfWork(ApplicationDbContext applicationDbContext, IBuildingRepository building, IBuildingStatusRepository buildingStatus, IBuildingTypeRepository buildingType, ICarRepository car, IFlatRepository flat, IFloorRepository floor, IHouseOwnerRepository houseOwner)
+        public UnitOfWork(ApplicationDbContext applicationDbContext, IBuildingRepository building, IBuildingStatusRepository buildingStatus, IBuildingTypeRepository buildingType, ICarRepository car, IFlatRepository flat, IFloorRepository floor, IHouseOwnerRepository houseOwner, IFlatTypeRepository flatType, IFlatStatusRepository flatStatus)
         {
             _applicationDbContext = applicationDbContext;
             Building = building;
@@ -24,6 +24,8 @@ namespace ApsiyonProject.Persistance.App.UnitOfWork
             Flat = flat;
             Floor = floor;
             HouseOwner = houseOwner;
+            FlatType= flatType;
+            FlatStatus = flatStatus;
         }
 
         public IBuildingRepository Building { get; }
@@ -31,6 +33,8 @@ namespace ApsiyonProject.Persistance.App.UnitOfWork
         public IBuildingTypeRepository BuildingType { get; }
         public ICarRepository Car { get; }
         public IFlatRepository Flat { get; }
+        public IFlatStatusRepository FlatStatus { get; }
+        public IFlatTypeRepository FlatType { get; }
         public IFloorRepository Floor { get; }
         public IHouseOwnerRepository HouseOwner { get; }
         public IHouseOwnerRoleClaimsRepository HouseOwnerRoleClaims { get; }

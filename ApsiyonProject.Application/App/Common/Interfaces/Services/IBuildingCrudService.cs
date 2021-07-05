@@ -1,5 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Building;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Domain.App.Entities;
 using System;
 using System.Collections.Generic;

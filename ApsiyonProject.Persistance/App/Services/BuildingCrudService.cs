@@ -1,5 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Building;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
 using ApsiyonProject.Domain.App.Entities;
@@ -27,21 +27,10 @@ namespace ApsiyonProject.Persistance.App.Services
         }
 
         public async Task<int> AddAsync(AddBuildingDto entity)
-        {
-            var buildingStatusId = entity.BuildingStatusId;
+        {            
             var mappedData = _mapper.Map<Building>(entity);
-            var preInsertData = await _unitOfWork.Building.AddTypeWithReturnAsync(mappedData);
-            var countInsertedData = await _unitOfWork.SaveChangesAsync();
-            if (countInsertedData > 0)
-            {
-                var dbData = await GetBuildingByIdAsync(preInsertData.Entity.Id);
-                var buildingStatusData = await _buildingStatusCrudService.GetBuildingStatusByIdAsync(buildingStatusId);
-                dbData.BuildingStatus = buildingStatusData;
-                var firstmapped = _mapper.Map<BuildingUpdateDto>(dbData);
-                var secondmapped = _mapper.Map<Building>(firstmapped);
-                return await _unitOfWork.Building.CustomUpdate(secondmapped);
-            }
-            return 0;
+            await _unitOfWork.Building.AddTypeAsync(mappedData);
+            return await _unitOfWork.SaveChangesAsync();        
         }
 
         /*

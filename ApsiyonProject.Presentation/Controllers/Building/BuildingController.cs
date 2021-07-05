@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Infrastructure.Controllers.Building;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -21,9 +22,9 @@ namespace ApsiyonProject.Presentation.Controllers.Building
             return ViewComponent("AddBuilding");
         }
         [HttpPost]
-        public async Task<ActionResult> AddBuilding(BuildingDto buildingDto)
+        public async Task<ActionResult> AddBuilding(AddBuildingDto addBuildingDto)
         {
-            ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(buildingDto);
+            ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(addBuildingDto);
             return RedirectToAction("");
         }
 
