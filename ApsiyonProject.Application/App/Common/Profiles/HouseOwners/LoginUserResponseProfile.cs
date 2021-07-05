@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace ApsiyonProject.Application.App.Common.Profiles.HouseOwners
 {
-    public class HouseOwnerProfile:Profile
+    public class LoginUserResponseProfile:Profile
     {
-        public HouseOwnerProfile()
+        public LoginUserResponseProfile()
         {
-            CreateMap<HouseOwnerInitDto, HouseOwner>().ReverseMap();
+            CreateMap<HouseOwner, LoginUserResponseDto>().ReverseMap();
         }
     }
 }

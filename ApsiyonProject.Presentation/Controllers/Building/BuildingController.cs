@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Presentation.Controllers
+namespace ApsiyonProject.Presentation.Controllers.Building
 {
     public class BuildingController : Controller
     {
@@ -16,6 +16,19 @@ namespace ApsiyonProject.Presentation.Controllers
         {
             _buildingApiController = buildingApiController;
         }
+        public ActionResult AddBuilding()
+        {
+            return ViewComponent("AddBuilding");
+        }
+        [HttpPost]
+        public async Task<ActionResult> AddBuilding(BuildingDto buildingDto)
+        {
+            ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(buildingDto);
+            return RedirectToAction("");
+        }
+
+        #region eski
+        /*
         public ActionResult Index()
         {
             return View("Index");
@@ -26,17 +39,10 @@ namespace ApsiyonProject.Presentation.Controllers
             return ViewComponent("GetBuildingList");
         }
 
-        public ActionResult CreateBuilding()
-        {            
-            return ViewComponent("Building");
-        }
 
-        [HttpPost]
-        public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
-        {
-            ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(buildingDto);
-            return RedirectToAction("Index");
-        }
 
+ 
+        */
+        #endregion
     }
 }

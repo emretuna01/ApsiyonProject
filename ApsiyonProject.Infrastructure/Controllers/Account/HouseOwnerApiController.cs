@@ -26,5 +26,11 @@ namespace ApsiyonProject.Infrastructure.Controllers.Account
         {
             return await _houseOwnerCrudService.CreateAsync(houseOwnerInitDto);
         }
+
+        [HttpPost("GetHouseOwnerByModel")]
+        public async Task<LoginUserResponseDto> GetHouseOwnerByModel(LoginUserDto loginUserDto)
+        {
+            return  await _houseOwnerCrudService.GetUserByModelAync(loginUserDto);
+        }
     }
 }

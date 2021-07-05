@@ -9,6 +9,7 @@ using AutoMapper;
 using System.Reflection;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Building;
 
 namespace ApsiyonProject.Application
 {
@@ -21,7 +22,7 @@ namespace ApsiyonProject.Application
         public static void AddApplicationDtoService(this IServiceCollection services)
         {
             services.AddScoped<HouseOwnerInitDto>();
-            services.AddScoped<BuildingDto>();
+            services.AddScoped<AddBuildingDto>();
             services.AddScoped<BuildingStatusDto>();
             services.AddScoped<LoginUserDto>();
         }

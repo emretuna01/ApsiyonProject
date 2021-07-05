@@ -2,6 +2,7 @@
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
+using ApsiyonProject.Application.App.Common.Profiles.HouseOwners;
 using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;
 using System;
@@ -29,5 +30,13 @@ namespace ApsiyonProject.Persistance.App.Services
             await _unitOfWork.HouseOwner.AddTypeAsync(mappedData);
             return await _unitOfWork.SaveChangesAsync();
         }
+        public async Task<LoginUserResponseDto> GetUserByModelAync(LoginUserDto loginUserDto)
+        {
+            var mappedData = _mapper.Map<HouseOwner>(loginUserDto);
+            var dataFromDb= await _unitOfWork.HouseOwner.GetWhereAsync(p=>p.Username.Contains(mappedData.Username) && p.Password.Contains(mappedData.Password));
+            return _mapper.Map<LoginUserResponseDto>(dataFromDb);
+            
+        }
+
     }
 }

@@ -30,6 +30,7 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
             ViewBag.Message = (await _houseOwnerApiController.AddHouseOwner(houseOwnerInitDto)).ToString() + " Kayıt Başarı ile Eklendi";
             return RedirectToAction("ResponseIndex", new { message = ViewBag.Message });
         }
+
         public ActionResult ResponseIndex(string message)
         {
             ViewBag.Message = message;
@@ -42,20 +43,30 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
         }
         
         [HttpPost]
-        public ActionResult LoginUser(LoginUserDto loginUserDto)
+        public async Task<ActionResult> LoginUser(LoginUserDto loginUserDto)
         {
-            return View();
+           var userModel= await _houseOwnerApiController.GetHouseOwnerByModel(loginUserDto);
+            if (userModel != null )
+            {
+                if (userModel.Id != Guid.Empty){return RedirectToAction("Index");}
+                else
+                {
+                    ViewBag.Message = "Yanlış Kullanıcı Adı ya da Şifre";
+                    return RedirectToAction("ResponseIndex", new { message = ViewBag.Message });
+                }
+            }
+            else
+            {
+                ViewBag.Message = "Yanlış Kullanıcı Adı ya da Şifre";
+                return RedirectToAction("ResponseIndex", new { message = ViewBag.Message });
+            }
+            
         }
 
         public ActionResult Index()
         {
             return View();
         }
-
-
-
-
-
 
     }
 }
