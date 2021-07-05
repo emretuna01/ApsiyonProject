@@ -11,19 +11,19 @@ namespace ApsiyonProject.Presentation.ViewComponents
 {
     public class BuildingViewComponent:ViewComponent
     {
-        private readonly ApsiyonController _apsiyonController;
+        private readonly BuildingTypeApiController _buildingTypeApiController;
         private readonly BuildingStatusApiController _buildingStatusApiController;
         private readonly BuildingDto _buildingDto;
-        public BuildingViewComponent(ApsiyonController apsiyonController, BuildingDto buildingDto, BuildingStatusApiController buildingStatusApiController)
+        public BuildingViewComponent(BuildingDto buildingDto, BuildingStatusApiController buildingStatusApiController, BuildingTypeApiController buildingTypeApiController)
         {
-            _apsiyonController = apsiyonController;
             _buildingDto = buildingDto;
             _buildingStatusApiController = buildingStatusApiController;
+            _buildingTypeApiController = buildingTypeApiController;
         }
         public async Task<IViewComponentResult> InvokeAsync()
         {           
             ViewBag.BuildingStatus = await _buildingStatusApiController.GetListBuildingStatusAsync();
-            ViewBag.BuildingType = await _apsiyonController.GetListBuildingTypeAsync();
+            ViewBag.BuildingType = await _buildingTypeApiController.GetListBuildingTypeAsync();
             return View(_buildingDto);
         }
     }

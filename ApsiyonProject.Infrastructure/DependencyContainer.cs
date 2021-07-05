@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Infrastructure.Controllers;
+using ApsiyonProject.Infrastructure.Controllers.Account;
 using ApsiyonProject.Infrastructure.Controllers.Building;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -13,8 +14,10 @@ namespace ApsiyonProject.Infrastructure
 
         public static void AddInfrastructureService(this IServiceCollection service)
         {
-            service.AddScoped<ApsiyonController>();
+            service.AddScoped<BuildingApiController>();
             service.AddScoped<BuildingStatusApiController>();
+            service.AddScoped<BuildingTypeApiController>();
+            service.AddScoped<HouseOwnerApiController>();
             
         }
 

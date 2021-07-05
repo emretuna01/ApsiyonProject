@@ -57,7 +57,7 @@ namespace ApsiyonProject.Presentation
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Account}/{action=Index}/{id?}");
+                    pattern: "{controller=Building}/{action=Index}/{id?}");
             });
         }
     }

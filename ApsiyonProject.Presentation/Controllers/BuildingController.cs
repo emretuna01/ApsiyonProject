@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Infrastructure.Controllers.Building;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,21 +10,31 @@ namespace ApsiyonProject.Presentation.Controllers
 {
     public class BuildingController : Controller
     {
-        public async Task<ActionResult> GetBuildingList()
+        readonly private BuildingApiController _buildingApiController;
+
+        public BuildingController(BuildingApiController buildingApiController)
         {
-            return PartialView(await _apsiyonController.GetListIncludeBuildingAsync());
+            _buildingApiController = buildingApiController;
+        }
+        public ActionResult Index()
+        {
+            return View("Index");
+        }
+
+        public  ActionResult GetBuildingList()
+        {
+            return ViewComponent("GetBuildingList");
         }
 
         public ActionResult CreateBuilding()
-        {
-            // ViewBag.BuildingStatus = await _apsiyonController.GetListBuildingStatusAsync();
+        {            
             return ViewComponent("Building");
         }
 
         [HttpPost]
         public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
         {
-            ViewBag.AddCountMessage = await _apsiyonController.AddBuildingAsync(buildingDto);
+            ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(buildingDto);
             return RedirectToAction("Index");
         }
 

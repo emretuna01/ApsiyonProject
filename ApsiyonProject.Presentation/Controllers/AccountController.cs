@@ -1,5 +1,6 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Infrastructure.Controllers;
+using ApsiyonProject.Infrastructure.Controllers.Account;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -11,16 +12,13 @@ namespace ApsiyonProject.Presentation.Controllers
 {
     public class AccountController : Controller
     {
-        private readonly ApsiyonController _apsiyonController;
-        public AccountController(ApsiyonController apsiyonController)
-        {
-            _apsiyonController = apsiyonController;
+        private readonly HouseOwnerApiController _houseOwnerApiController;
+        public AccountController(HouseOwnerApiController houseOwnerApiController)
+        {            
+            _houseOwnerApiController = houseOwnerApiController;
         }
 
-        public async Task<ActionResult> Index()
-        {
-            return View(await _apsiyonController.GetListIncludeBuildingAsync());
-        }
+     
               
 
     }

@@ -1,27 +1,25 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Infrastructure.Controllers;
+using ApsiyonProject.Infrastructure.Controllers.Building;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace ApsiyonProject.Presentation.ViewComponents
 {
     public class GetBuildingListViewComponent : ViewComponent
     {
-        private readonly ApsiyonController _apsiyonController;        
+        private readonly BuildingApiController _buildingApiController;
         private readonly IMapper _mapper;
-        public GetBuildingListViewComponent(ApsiyonController apsiyonController, BuildingDto buildingDto, IMapper mapper)
+        public GetBuildingListViewComponent(BuildingDto buildingDto, IMapper mapper, BuildingApiController buildingApiController)
         {
-            _apsiyonController = apsiyonController;            
             _mapper = mapper;
+            _buildingApiController = buildingApiController;
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
-        {            
-            var mappedData=_mapper.Map<IEnumerable<DefaultBuildingDto>>(await _apsiyonController.GetRawListIncludeBuildingAsync());            
+        {
+            var mappedData = _mapper.Map<IEnumerable<DefaultBuildingDto>>(await _buildingApiController.GetRawListIncludeBuildingAsync());
             return View(mappedData);
         }
     }

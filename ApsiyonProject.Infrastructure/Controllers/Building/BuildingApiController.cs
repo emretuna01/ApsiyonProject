@@ -32,8 +32,6 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
             return await _buildingCrudService.GetListIncludeAsync();
         }
 
-
-
         [HttpPost("AddBuilding")]
         public async Task<int> AddBuildingAsync(BuildingDto buildingDto)
         {
