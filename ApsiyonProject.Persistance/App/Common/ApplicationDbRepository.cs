@@ -27,7 +27,7 @@ namespace ApsiyonProject.Persistance.App.Common
             await _entity.AddRangeAsync(typeList);
           
         }
-               
+        
         public async Task AddTypeAsync(T type)
         {
             await _entity.AddAsync(type);
@@ -53,6 +53,7 @@ namespace ApsiyonProject.Persistance.App.Common
         {
             return await _entity.Where(expression).FirstOrDefaultAsync();
         }
+
         public async Task<T> GetWhereAsync(Guid id)
         {
             return await _entity.Where(p =>p.Id==id).FirstOrDefaultAsync();
@@ -62,7 +63,6 @@ namespace ApsiyonProject.Persistance.App.Common
         {             
             _entity.Update(type);           
         }
-
 
         public async Task TruncateAsync()
         {

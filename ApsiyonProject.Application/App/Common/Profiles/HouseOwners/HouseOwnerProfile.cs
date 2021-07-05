@@ -1,4 +1,4 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;
 using System;
@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Profiles
+namespace ApsiyonProject.Application.App.Common.Profiles.HouseOwners
 {
     public class HouseOwnerProfile:Profile
     {
         public HouseOwnerProfile()
         {
-            CreateMap<HouseOwner, HouseOwnerDto>().ReverseMap();
+            CreateMap<HouseOwner, HouseOwnerInitDto>().ReverseMap();
         }
     }
 }

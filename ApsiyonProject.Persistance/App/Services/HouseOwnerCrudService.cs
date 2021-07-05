@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
 using ApsiyonProject.Domain.App.Entities;
@@ -22,7 +23,7 @@ namespace ApsiyonProject.Persistance.App.Services
             _mapper = mapper;
         }
 
-        public async Task<int> AddAsync(HouseOwnerDto entity)
+        public async Task<int> CreateAsync(HouseOwnerInitDto entity)
         {
             var mappedData = _mapper.Map<HouseOwner>(entity);
             await _unitOfWork.HouseOwner.AddTypeAsync(mappedData);

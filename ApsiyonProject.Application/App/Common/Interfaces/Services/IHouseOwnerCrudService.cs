@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services
 {
     public interface IHouseOwnerCrudService
     {
-        public  Task<int> AddAsync(HouseOwnerDto entity);
+        public  Task<int> CreateAsync(HouseOwnerInitDto entity);
     }
 }

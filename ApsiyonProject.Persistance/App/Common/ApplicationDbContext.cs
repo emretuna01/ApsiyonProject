@@ -14,7 +14,6 @@ namespace ApsiyonProject.Persistance.App.Common
     {
         public ApplicationDbContext(DbContextOptions dbContextOptions):base(dbContextOptions)
         {
-
         }
 
         public DbSet<Building> Buildings { get; set; }
