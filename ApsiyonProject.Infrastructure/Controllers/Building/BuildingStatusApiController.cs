@@ -1,5 +1,5 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
-using ApsiyonProject.Application.App.Common.Interfaces.Services;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
+using ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -20,17 +20,25 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
             _buildingStatusCrudService = buildingStatusCrudService;
         }
 
-        [HttpGet("GetListBuildingStatus")]
-        public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
-        {
-            return await _buildingStatusCrudService.GetListBuildingStatusAsync();
-        }
-
         [HttpPost("AddBuildingStatus")]
         public async Task<int> AddBuildingStatusAsync(BuildingStatusDto buildingStatusDto)
         {
             return await _buildingStatusCrudService.CreateBuildingStatusAsync(buildingStatusDto);
         }
 
+        [HttpGet("GetBuildingStatusById")]
+        public async Task<BuildingStatusDto> GetBuildingStatusByIdAsync(Guid id)
+        {
+            return await _buildingStatusCrudService.GetBuildingStatusByIdAsync(id);
+        }
+
+        [HttpGet("GetListBuildingStatus")]
+        public async Task<List<BuildingStatusDto>> GetListBuildingStatusAsync()
+        {
+            return await _buildingStatusCrudService.GetListBuildingStatusAsync();
+
+        }
+
+   
     }
 }

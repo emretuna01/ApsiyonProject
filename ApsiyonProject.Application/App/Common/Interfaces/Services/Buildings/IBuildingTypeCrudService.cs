@@ -10,6 +10,9 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings
 {
     public interface IBuildingTypeCrudService
     {
+        public Task<int> CreateBuildingTypeAsync(BuildingTypeDto buildingStatus);
+        public Task<BuildingTypeDto> GetBuildingTypeByIdAsync(Guid id);
         public Task<List<BuildingTypeDto>> GetListBuildingTypeAsync();
     }
+
 }

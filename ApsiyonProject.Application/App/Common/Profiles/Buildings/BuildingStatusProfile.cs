@@ -1,4 +1,5 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;
 using System;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Profiles
+namespace ApsiyonProject.Application.App.Common.Profiles.Buildings
 {
     public class BuildingStatusProfile:Profile
     {

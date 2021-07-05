@@ -12,7 +12,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings
 {
     public interface IBuildingCrudService
     {
-        public Task<int> AddAsync(AddBuildingDto entity);
+        public Task<int> CreateBuildingAsync(AddBuildingDto entity);
        // public Task<List<BuildingDto>> GetListIncludeAsync();
       //  public Task<BuildingDto> GetBuildingByIdAsync(Guid id);
      //   public Task<List<Building>> GetRawListIncludeAsync();

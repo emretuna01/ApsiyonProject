@@ -1,4 +1,4 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;

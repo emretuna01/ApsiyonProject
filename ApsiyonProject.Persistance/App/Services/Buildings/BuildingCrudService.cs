@@ -26,7 +26,7 @@ namespace ApsiyonProject.Persistance.App.Services
             
         }
 
-        public async Task<int> AddAsync(AddBuildingDto entity)
+        public async Task<int> CreateBuildingAsync(AddBuildingDto entity)
         {            
             var mappedData = _mapper.Map<Building>(entity);
             await _unitOfWork.Building.AddTypeAsync(mappedData);

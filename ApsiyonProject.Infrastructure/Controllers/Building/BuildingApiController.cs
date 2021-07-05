@@ -25,7 +25,7 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
         [HttpPost("AddBuilding")]
         public async Task<int> AddBuildingAsync(AddBuildingDto addBuildingDto)
         {
-            return await _buildingCrudService.AddAsync(addBuildingDto);
+            return await _buildingCrudService.CreateBuildingAsync(addBuildingDto);
         }
         
         /*
