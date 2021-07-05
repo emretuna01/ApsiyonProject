@@ -10,6 +10,6 @@
     </div>
 </div>
 
-@Html.ActionLink("Site Ekle", "CreateBuilding", "account", null, new { id = "open", data_toggle = "modal", data_target = "#showmodal", @class = "btn btn-primary" })
+<a id="open"  data-toggle="modal" data-target="#showmodal" class="btn btn-primary" asp-action="CreateBuilding" asp-controller="account">Site Ekle </a>
 @await Component.InvokeAsync("GetBuildingList")
 

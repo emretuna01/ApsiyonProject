@@ -3,28 +3,30 @@
 
 
 <div class="modal-header">
-    <h4 class="modal-title">BuildingDto</h4>
+    <h4 class="modal-title">Site Ekle</h4>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
 <div class="modal-body">
     <form asp-action="CreateBuilding">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="BlockName" class="control-label"></label>
+            <label asp-for="BlockName" class="control-label">Site Adı</label>
             <input asp-for="BlockName" class="form-control" />
             <span asp-validation-for="BlockName" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="BuildingStatusId" class="control-label"></label>
-            <select asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
-                <option>Birini Seçin</option>
+            <label asp-for="BuildingStatusId" class="control-label">Site Durumu</label>
+            @Html.ActionLink("Site Durumu Ekle", "", "", null, new { @class = "btn btn-primary btn-xs",style= "padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; margin-left:3%;" })
+            <select class="form-control" asp-for="BuildingStatusId" asp-items="@(new SelectList(ViewBag.BuildingStatus,"Id","Status"))">
+                <option disabled selected >Lütfen Birini Seçin</option>
             </select>
             <span asp-validation-for="BuildingStatus" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="BuildingTypeId" class="control-label"></label>
-            <select asp-for="BuildingTypeId" asp-items="@(new SelectList(ViewBag.BuildingType,"Id","Type"))">
-                <option>Birini Seçin</option>
+            <label asp-for="BuildingTypeId" class="control-label">Site Tipi</label>
+            @Html.ActionLink("Site Tipi Ekle", "", "", null, new { @class = "btn btn-primary btn-xs", style = "padding-top:0px; padding-bottom:0px; padding-left:2px; padding-right:2px; margin-left:3%;" })
+            <select class="form-control" asp-for="BuildingTypeId" asp-items="@(new SelectList(ViewBag.BuildingType,"Id","Type"))">
+                <option disabled selected>Lütfen Birini Seçin</option>
             </select>
             <span asp-validation-for="BuildingStatus" class="text-danger"></span>
         </div>

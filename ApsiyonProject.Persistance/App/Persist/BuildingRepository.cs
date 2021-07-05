@@ -30,10 +30,30 @@ namespace ApsiyonProject.Persistance.App.Persist
 
         public async Task<int> CustomUpdate(Building building)
         {
-            string preUpdatedValue = building.BuildingStatus.Id.ToString();
-            string dbRowId = building.Id.ToString();
-            string sqlString = $"UPDATE [ApsiyonProject].[dbo].[Buildings] SET BuildingStatusId = cast('{preUpdatedValue}' AS UNIQUEIDENTIFIER) WHERE[dbo].[Buildings].[Id] = cast('{dbRowId}' AS UNIQUEIDENTIFIER)";
-            return await _aplicationDbContext.Database.ExecuteSqlRawAsync(sqlString);
+            if (building.BuildingStatus!=null&& building.BuildingType==null)
+            {
+                string preBuildingStatusUpdatedValue = building.BuildingStatus?.Id.ToString();                
+                string dbRowId = building.Id.ToString();
+                string sqlString = $"UPDATE [ApsiyonProject].[dbo].[Buildings] SET BuildingStatusId = cast('{preBuildingStatusUpdatedValue}' AS UNIQUEIDENTIFIER) WHERE[dbo].[Buildings].[Id] = cast('{dbRowId}' AS UNIQUEIDENTIFIER)";
+                return await _aplicationDbContext.Database.ExecuteSqlRawAsync(sqlString);
+            }
+            else if (building.BuildingStatus == null && building.BuildingType != null)
+            {                
+                string preBuildingTypeUpdatedValue = building.BuildingType?.Id.ToString();
+                string dbRowId = building.Id.ToString();
+                string sqlString = $"UPDATE [ApsiyonProject].[dbo].[Buildings] SET BuildingStatusId = cast('{preBuildingTypeUpdatedValue}' AS UNIQUEIDENTIFIER) WHERE[dbo].[Buildings].[Id] = cast('{dbRowId}' AS UNIQUEIDENTIFIER)";
+                return await _aplicationDbContext.Database.ExecuteSqlRawAsync(sqlString);
+
+            }
+            else if (building.BuildingStatus != null && building.BuildingType != null)
+            {
+                string preBuildingStatusUpdatedValue = building.BuildingStatus?.Id.ToString();
+                string preBuildingTypeUpdatedValue = building.BuildingType?.Id.ToString();
+                string dbRowId = building.Id.ToString();
+                string sqlString = $"UPDATE [ApsiyonProject].[dbo].[Buildings] SET BuildingStatusId = cast('{preBuildingStatusUpdatedValue}' AS UNIQUEIDENTIFIER),BuildingTypeId=cast('{preBuildingTypeUpdatedValue}' AS UNIQUEIDENTIFIER) WHERE[dbo].[Buildings].[Id] = cast('{dbRowId}' AS UNIQUEIDENTIFIER)";
+                return await _aplicationDbContext.Database.ExecuteSqlRawAsync(sqlString);
+            }
+            return 0;
         }
 
     }

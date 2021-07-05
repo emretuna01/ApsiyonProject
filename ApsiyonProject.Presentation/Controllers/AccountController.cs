@@ -35,8 +35,8 @@ namespace ApsiyonProject.Presentation.Controllers
 
         [HttpPost]
         public async Task<ActionResult> CreateBuilding(BuildingDto buildingDto)
-        {           
-            ViewBag.AddCountMessage = await _apsiyonController.AddBuildingAsync(buildingDto);
+        {
+           ViewBag.AddCountMessage = await _apsiyonController.AddBuildingAsync(buildingDto);
             return RedirectToAction("Index");
         }
 
