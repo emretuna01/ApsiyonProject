@@ -25,6 +25,8 @@ namespace ApsiyonProject.Application
             services.AddScoped<AddBuildingDto>();
             services.AddScoped<BuildingStatusDto>();
             services.AddScoped<LoginUserDto>();
+            services.AddScoped<BuildingTypeDto>();
+            
         }
 
     }

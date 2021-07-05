@@ -27,10 +27,14 @@ namespace ApsiyonProject.Presentation
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession();
             services.AddControllersWithViews();
             services.AddPersistanceFundamentalService(new ConfigurationBuilder().SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "../ApsiyonProject.Infrastructure")).AddJsonFile("appsettings.json").Build());
             services.AddInfrastructureService();
             services.AddApplicationDtoService();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,6 +56,7 @@ namespace ApsiyonProject.Presentation
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {

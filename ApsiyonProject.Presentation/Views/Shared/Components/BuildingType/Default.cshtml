@@ -1,17 +1,19 @@
-﻿@model BuildingStatusDto
+﻿@model BuildingTypeDto
+
+
 
 
 <div class="modal-header">
-    <h4 class="modal-title">Site İskan Durumu Ekle</h4>
+    <h4 class="modal-title">Site Tipi Ekle</h4>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 </div>
 <div class="modal-body">
-    <form asp-action="AddBuildingStatus" asp-controller="BuildingStatus" method="post">
+    <form asp-action="AddBuildingType" asp-controller="BuildingType" method="post">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
         <div class="form-group">
-            <label asp-for="Status" class="control-label"></label>
-            <input asp-for="Status" class="form-control" />
-            <span asp-validation-for="Status" class="text-danger"></span>
+            <label asp-for="Type" class="control-label"></label>
+            <input asp-for="Type" class="form-control" />
+            <span asp-validation-for="Type" class="text-danger"></span>
         </div>
         <div class="form-group">
             <input type="submit" value="Create" class="btn btn-primary" />

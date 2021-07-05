@@ -1,13 +1,14 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Infrastructure.Controllers.Building;
+using ApsiyonProject.Presentation.Extensions;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Presentation.Controllers.Building
+namespace ApsiyonProject.Presentation.Controllers.Buildings
 {
     public class BuildingController : Controller
     {
@@ -24,26 +25,12 @@ namespace ApsiyonProject.Presentation.Controllers.Building
         [HttpPost]
         public async Task<ActionResult> AddBuilding(AddBuildingDto addBuildingDto)
         {
+            var userIdFromSession = HttpContext.Session.GetSessionType<Guid>("UserId");
+            addBuildingDto.AdministratorId = userIdFromSession;
             ViewBag.AddCountMessage = await _buildingApiController.AddBuildingAsync(addBuildingDto);
-            return RedirectToAction("");
+            return RedirectToAction("Index","Account");
         }
 
-        #region eski
-        /*
-        public ActionResult Index()
-        {
-            return View("Index");
-        }
-
-        public  ActionResult GetBuildingList()
-        {
-            return ViewComponent("GetBuildingList");
-        }
-
-
-
- 
-        */
-        #endregion
+        
     }
 }

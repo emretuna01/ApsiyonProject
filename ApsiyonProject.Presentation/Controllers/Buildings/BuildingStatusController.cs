@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Presentation.Controllers
+namespace ApsiyonProject.Presentation.Controllers.Buildings
 {
     public class BuildingStatusController : Controller
     {
@@ -18,20 +18,16 @@ namespace ApsiyonProject.Presentation.Controllers
             _buildingStatusApiController = buildingStatusApiController;
         }
 
-        public ActionResult Index()
-        {            
-            return View("Index");
-        }
-        public ActionResult CreateBuildingStatus()
+        public ActionResult AddBuildingStatus()
         {
             return ViewComponent("BuildingStatus");
         }
 
         [HttpPost]
-        public async Task<ActionResult> CreateBuildingStatus(BuildingStatusDto buildingStatusDto)
+        public async Task<ActionResult> AddBuildingStatus(BuildingStatusDto buildingStatusDto)
         {
             ViewBag.AddCountMessage = await _buildingStatusApiController.AddBuildingStatusAsync(buildingStatusDto);
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Account");
         }
     }
 }

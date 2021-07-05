@@ -2,6 +2,7 @@
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Infrastructure.Controllers;
 using ApsiyonProject.Infrastructure.Controllers.Account;
+using ApsiyonProject.Presentation.Extensions;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -48,7 +49,12 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
            var userModel= await _houseOwnerApiController.GetHouseOwnerByModel(loginUserDto);
             if (userModel != null )
             {
-                if (userModel.Id != Guid.Empty){return RedirectToAction("Index");}
+                if (userModel.Id != Guid.Empty)
+                {
+                    HttpContext.Session.SetSessionType<Guid>("UserId", userModel.Id);
+                    return RedirectToAction("Index");
+                    
+                }
                 else
                 {
                     ViewBag.Message = "Yanlış Kullanıcı Adı ya da Şifre";

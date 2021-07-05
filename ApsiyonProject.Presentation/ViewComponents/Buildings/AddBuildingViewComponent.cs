@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Presentation.ViewComponents.Building
+namespace ApsiyonProject.Presentation.ViewComponents.Buildings
 {
     public class AddBuildingViewComponent:ViewComponent
     {
