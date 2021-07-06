@@ -8,6 +8,8 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners
 {
     public class HouseOwnerDto
     {
+        public Guid Id { get; set; }
+        public bool IsActive { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public string Name { get; set; }

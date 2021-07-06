@@ -9,7 +9,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.DbRepository
 {
     public interface IBuildingRepository:IApplicationDbRepository<Building>
     {
-        public Task<List<Building>> GetBuildingsIncludeAsync();
-        public Task<int> CustomUpdate(Building building);
+        public Task<List<Building>> GetBuildingListByIdWithInculeListAsync(Guid id);
+        
     }
 }

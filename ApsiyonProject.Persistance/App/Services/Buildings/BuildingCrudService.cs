@@ -33,6 +33,12 @@ namespace ApsiyonProject.Persistance.App.Services
             return await _unitOfWork.SaveChangesAsync();        
         }
 
+        public async Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id)
+        {
+            var preMappedData = await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id);
+             return _mapper.Map<List<GetBuildingListDto>>(preMappedData);            
+        }
+
         /*
         public async Task<BuildingDto> GetBuildingByIdAsync(Guid id)
         {

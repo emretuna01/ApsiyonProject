@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos
+namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.Cars
 {
     public class CarDto
     {

@@ -27,20 +27,13 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
         {
             return await _buildingCrudService.CreateBuildingAsync(addBuildingDto);
         }
-        
-        /*
-        [HttpGet("GetRawListIncludeBuilding")]
-        public async Task<List<BuildingEntities.Building>> GetRawListIncludeBuildingAsync()
-        {
-            return await _buildingCrudService.GetRawListIncludeAsync();
-        }
 
-        [HttpGet("GetListIncludeBuilding")]
-        public async Task<List<BuildingDto>> GetListIncludeBuildingAsync()
+        [HttpGet("GetBuildingListByIdWithInculeList")]
+        public async Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id)
         {
-            return await _buildingCrudService.GetListIncludeAsync();
+            return await _buildingCrudService.GetBuildingListByIdWithInculeListAsync(id);
         }
-        */
+  
 
     }
 }

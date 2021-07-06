@@ -13,13 +13,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings
     public interface IBuildingCrudService
     {
         public Task<int> CreateBuildingAsync(AddBuildingDto entity);
-       // public Task<List<BuildingDto>> GetListIncludeAsync();
-      //  public Task<BuildingDto> GetBuildingByIdAsync(Guid id);
-     //   public Task<List<Building>> GetRawListIncludeAsync();
+        public Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id);
 
-        //void Delete(int id);
-        //void Update(BuildingDto entity);
-        //Task<List<BuildingDto>> GetAll();
-        //Task<List<BuildingDto>> Get(Expression<Func<BuildingDto, bool>> filter);
     }
 }
