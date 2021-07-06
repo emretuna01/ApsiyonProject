@@ -8,5 +8,5 @@
     </div>
 </div>
 
-<a id="open" data-toggle="modal" data-target="#showmodal" asp-action="" class="btn btn-primary">Site Ekle </a>
+<a id="open" data-toggle="modal" data-target="#showmodal" asp-action="" class="btn btn-primary" onclick="return confirm('İlk Defa Site Ekliyorsanız Önce site tipi ve durumunu ekleleyiniz. Bu mesaj her eklemede çıkıyor kontrol yazılacak');">Site Ekle </a>
 @await Component.InvokeAsync("GetBuildingListById")

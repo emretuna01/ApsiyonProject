@@ -10,6 +10,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings
 {
     public class GetBuildingListDto
     {
+        public Guid Id { get; set; }
         public string BlockName { get; set; }        
         public BuildingStatusDto BuildingStatus { get; set; }               
         public BuildingTypeDto BuildingType { get; set; }     

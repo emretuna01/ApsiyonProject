@@ -1,6 +1,7 @@
 ﻿using ApsiyonProject.Infrastructure.Controllers;
 using ApsiyonProject.Infrastructure.Controllers.Account;
 using ApsiyonProject.Infrastructure.Controllers.Building;
+using ApsiyonProject.Infrastructure.Controllers.Floors;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,8 @@ namespace ApsiyonProject.Infrastructure
             service.AddScoped<BuildingStatusApiController>();
             service.AddScoped<BuildingTypeApiController>();
             service.AddScoped<HouseOwnerApiController>();
-            
+            service.AddScoped<FloorApiController>();
+
         }
 
 

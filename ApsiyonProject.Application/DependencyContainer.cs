@@ -10,6 +10,7 @@ using System.Reflection;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Floors;
 
 namespace ApsiyonProject.Application
 {
@@ -26,7 +27,9 @@ namespace ApsiyonProject.Application
             services.AddScoped<BuildingStatusDto>();
             services.AddScoped<LoginUserDto>();
             services.AddScoped<BuildingTypeDto>();
-            services.AddScoped<List<GetBuildingListDto>>();           
+            services.AddScoped<List<GetBuildingListDto>>();
+            services.AddScoped<FloorDto>();
+            
 
 
         }

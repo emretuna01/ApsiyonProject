@@ -25,28 +25,27 @@
     <tbody>
         @foreach (var item in Model)
         {
-        <tr>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BlockName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BuildingStatus.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BuildingType.Type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Administrator.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Administrator.SurName)
-            </td>
-        </tr>
+            <tr>
+                <td>
+                    <a  class="btn btn-primary" asp-action="AddFloor" asp-route-buildingId="@item.Id" asp-controller="Floor" >Kat Ekle</a>
+               
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BlockName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildingStatus.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuildingType.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Administrator.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Administrator.SurName)
+                </td>
+            </tr>
         }
     </tbody>
 </table>
