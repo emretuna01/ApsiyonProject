@@ -10,5 +10,6 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Flats
     public interface IFlatCrudService
     {
         public Task<int> CreateFlatTypeAsync(FlatDto flatDto);
+        public Task<List<FlatDto>> GetFlatListByIdWithInculeListAsync(Guid id);
     }
 }

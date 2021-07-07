@@ -26,5 +26,11 @@ namespace ApsiyonProject.Infrastructure.Controllers.Flats
             return await _flatCrudService.CreateFlatTypeAsync(flatDto);
         }
 
+        [HttpGet("GetFlatListByIdWithInculeList")]
+        public async Task<List<FlatDto>> GetFlatListByIdWithInculeListAsync(Guid id)
+        {
+            return await _flatCrudService.GetFlatListByIdWithInculeListAsync(id);
+        }
+
     }
 }

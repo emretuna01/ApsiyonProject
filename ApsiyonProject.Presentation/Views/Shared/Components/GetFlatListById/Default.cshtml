@@ -1,0 +1,44 @@
+﻿@model IEnumerable<FlatDto>
+
+
+<table class="table">
+    <thead>
+        <tr>     
+            <th>
+                @Html.DisplayNameFor(model => model.FlatNumer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Floor.FloorNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlatStatus.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FlatType.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HouseOwner.Name)
+            </th>         
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatNumer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Floor.FloorNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatStatus.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlatType.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HouseOwner.Name)  &nbsp;  @Html.DisplayFor(modelItem => item.HouseOwner.SurName)
+            </td>               
+        </tr>}
+    </tbody>
+</table>

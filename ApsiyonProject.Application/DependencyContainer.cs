@@ -32,6 +32,9 @@ namespace ApsiyonProject.Application
             services.AddScoped<FloorDto>();
             services.AddScoped<FlatDto>();
             services.AddScoped<HouseOwnerDto>();
+            services.AddScoped<FlatStatusDto>();
+            services.AddScoped<FlatTypeDto>();
+
         }
         public static void AddCustomApplicationDtoService(this IServiceCollection services)
         {          

@@ -18,7 +18,7 @@ namespace ApsiyonProject.Presentation.Controllers.Flats
         }
 
         [HttpPost]
-        public async Task<ActionResult> AddFlatStatus(FlatTypeDto flatTypeDto)
+        public async Task<ActionResult> AddFlatType(FlatTypeDto flatTypeDto)
         {
             ViewBag.AddCountMessage = await _flatTypeApiController.AddFlatTypeAsync(flatTypeDto);
             return RedirectToAction("Index", "Account");
