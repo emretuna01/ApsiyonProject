@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ApsiyonProject.Application.App.Common.Interfaces.Services
+namespace ApsiyonProject.Application.App.Common.Interfaces.Services.HouseOwners
 {
     public interface IHouseOwnerCrudService
     {
-        public  Task<int> CreateAsync(HouseOwnerInitDto entity);
+        public Task<int> CreateHouseOwnerInitTypeAsync(HouseOwnerInitDto entity);
+        public Task<int> CreateHouseOwnerTypeByAdministratorAsync(HouseOwnerDto houseOwnerDto);
         public Task<LoginUserResponseDto> GetUserByModelAync(LoginUserDto loginUserDto);
     }
 }

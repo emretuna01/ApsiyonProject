@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ApsiyonProject.Persistance.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210701003441_Migration_2")]
-    partial class Migration_2
+    [Migration("20210707120342_Migration_1")]
+    partial class Migration_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -25,6 +25,9 @@ namespace ApsiyonProject.Persistance.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("AdministratorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("BlockName")
@@ -43,6 +46,8 @@ namespace ApsiyonProject.Persistance.Migrations
                         .HasColumnType("bit");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("AdministratorId");
 
                     b.HasIndex("BuildingStatusId");
 
@@ -128,7 +133,13 @@ namespace ApsiyonProject.Persistance.Migrations
                     b.Property<string>("FlatNumer")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("FloorId")
+                    b.Property<Guid>("FlatStatusId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FlatTypeId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("FloorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("HouseOwnerId")
@@ -139,11 +150,55 @@ namespace ApsiyonProject.Persistance.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("FlatStatusId");
+
+                    b.HasIndex("FlatTypeId");
+
                     b.HasIndex("FloorId");
 
                     b.HasIndex("HouseOwnerId");
 
                     b.ToTable("Flats");
+                });
+
+            modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.FlatStatus", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FlatStatuses");
+                });
+
+            modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.FlatType", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("CreatedDateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Type")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FlatTypes");
                 });
 
             modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.Floor", b =>
@@ -152,7 +207,7 @@ namespace ApsiyonProject.Persistance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("BuildingId")
+                    b.Property<Guid>("BuildingId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDateTime")
@@ -175,6 +230,9 @@ namespace ApsiyonProject.Persistance.Migrations
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid?>("AdministratorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDateTime")
@@ -203,7 +261,9 @@ namespace ApsiyonProject.Persistance.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("HouseOwner");
+                    b.HasIndex("AdministratorId");
+
+                    b.ToTable("HouseOwners");
                 });
 
             modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.HouseOwnerRoleClaims", b =>
@@ -272,6 +332,12 @@ namespace ApsiyonProject.Persistance.Migrations
 
             modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.Building", b =>
                 {
+                    b.HasOne("ApsiyonProject.Domain.App.Entities.HouseOwner", "Administrator")
+                        .WithMany()
+                        .HasForeignKey("AdministratorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ApsiyonProject.Domain.App.Entities.BuildingStatus", "BuildingStatus")
                         .WithMany()
                         .HasForeignKey("BuildingStatusId");
@@ -279,6 +345,8 @@ namespace ApsiyonProject.Persistance.Migrations
                     b.HasOne("ApsiyonProject.Domain.App.Entities.BuildingType", "BuildingType")
                         .WithMany()
                         .HasForeignKey("BuildingTypeId");
+
+                    b.Navigation("Administrator");
 
                     b.Navigation("BuildingStatus");
 
@@ -296,13 +364,31 @@ namespace ApsiyonProject.Persistance.Migrations
 
             modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.Flat", b =>
                 {
+                    b.HasOne("ApsiyonProject.Domain.App.Entities.FlatStatus", "FlatStatus")
+                        .WithMany()
+                        .HasForeignKey("FlatStatusId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("ApsiyonProject.Domain.App.Entities.FlatType", "FlatType")
+                        .WithMany()
+                        .HasForeignKey("FlatTypeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("ApsiyonProject.Domain.App.Entities.Floor", "Floor")
                         .WithMany("Flats")
-                        .HasForeignKey("FloorId");
+                        .HasForeignKey("FloorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ApsiyonProject.Domain.App.Entities.HouseOwner", "HouseOwner")
                         .WithMany("Flats")
                         .HasForeignKey("HouseOwnerId");
+
+                    b.Navigation("FlatStatus");
+
+                    b.Navigation("FlatType");
 
                     b.Navigation("Floor");
 
@@ -313,9 +399,20 @@ namespace ApsiyonProject.Persistance.Migrations
                 {
                     b.HasOne("ApsiyonProject.Domain.App.Entities.Building", "Building")
                         .WithMany("Floors")
-                        .HasForeignKey("BuildingId");
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Building");
+                });
+
+            modelBuilder.Entity("ApsiyonProject.Domain.App.Entities.HouseOwner", b =>
+                {
+                    b.HasOne("ApsiyonProject.Domain.App.Entities.HouseOwner", "Administrator")
+                        .WithMany()
+                        .HasForeignKey("AdministratorId");
+
+                    b.Navigation("Administrator");
                 });
 
             modelBuilder.Entity("HouseOwnerHouseOwnerRoles", b =>

@@ -11,9 +11,11 @@ namespace ApsiyonProject.Domain.App.Entities
     public class Floor : BaseEntity
     {
         public string FloorNumber { get; set; }
+
         public Guid BuildingId { get; set; }
         [ForeignKey("BuildingId")]
         public Building Building { get; set; }
+
         public ICollection<Flat>  Flats { get; set; }
     }
 }

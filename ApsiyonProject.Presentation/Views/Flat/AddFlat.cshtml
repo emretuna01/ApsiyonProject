@@ -1,0 +1,26 @@
+﻿@model FlatDto
+
+
+<h4>FlatDto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AddFlat">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="FlatNumer" class="control-label"></label>
+                <input asp-for="FlatNumer" class="form-control" />
+                <span asp-validation-for="FlatNumer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FloorId" class="control-label"></label>
+                <input readonly asp-for="FloorId" class="form-control" />
+                <span asp-validation-for="FloorId" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

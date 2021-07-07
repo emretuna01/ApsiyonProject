@@ -14,7 +14,7 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
 {
     public class AccountController : Controller
     {
-        private readonly HouseOwnerApiController _houseOwnerApiController;
+        private readonly HouseOwnerApiController _houseOwnerApiController;        
         public AccountController(HouseOwnerApiController houseOwnerApiController)
         {            
             _houseOwnerApiController = houseOwnerApiController;
@@ -67,6 +67,20 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
                 return RedirectToAction("ResponseIndex", new { message = ViewBag.Message });
             }
             
+        }
+
+        public ActionResult AddUserFromAdministrator(HouseOwnerDto houseOwnerDto)
+        {
+            houseOwnerDto.AdministratorId= HttpContext.Session.GetSessionType<Guid>("UserId");
+            return View(houseOwnerDto);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddUserFromAdministratorWithPost(HouseOwnerDto houseOwnerDto)
+        {
+            //houseOwnerDto.AdministratorId = HttpContext.Session.GetSessionType<Guid>("UserId");
+            await _houseOwnerApiController.AddHouseOwnerByAdministrator(houseOwnerDto);
+            return RedirectToAction("Index");
         }
 
         public ActionResult Index()

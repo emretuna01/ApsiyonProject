@@ -1,6 +1,7 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.Services;
+using ApsiyonProject.Application.App.Common.Interfaces.Services.HouseOwners;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -24,7 +25,13 @@ namespace ApsiyonProject.Infrastructure.Controllers.Account
         [HttpPost("AddHouseOwner")]
         public async Task<int> AddHouseOwner(HouseOwnerInitDto houseOwnerInitDto)
         {
-            return await _houseOwnerCrudService.CreateAsync(houseOwnerInitDto);
+            return await _houseOwnerCrudService.CreateHouseOwnerInitTypeAsync(houseOwnerInitDto);
+        }
+
+        [HttpPost("AddHouseOwnerByAdministrator")]
+        public async Task<int> AddHouseOwnerByAdministrator(HouseOwnerDto houseOwnerDto)
+        {
+            return await _houseOwnerCrudService.CreateHouseOwnerTypeByAdministratorAsync(houseOwnerDto);
         }
 
         [HttpPost("GetHouseOwnerByModel")]

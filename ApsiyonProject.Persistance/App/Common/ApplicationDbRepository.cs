@@ -46,6 +46,7 @@ namespace ApsiyonProject.Persistance.App.Common
         public async Task<T> GetWhereAsync(Expression<Func<T, bool>> expression)
         {
             return await _entity.Where(expression).FirstOrDefaultAsync();
+             
         }
 
         public async Task<T> GetWhereAsync(Guid id)

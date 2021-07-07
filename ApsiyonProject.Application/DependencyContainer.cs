@@ -11,6 +11,7 @@ using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Buildings;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Floors;
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Flats;
 
 namespace ApsiyonProject.Application
 {
@@ -29,6 +30,8 @@ namespace ApsiyonProject.Application
             services.AddScoped<BuildingTypeDto>();
             services.AddScoped<List<GetBuildingListDto>>();
             services.AddScoped<FloorDto>();
+            services.AddScoped<FlatDto>();
+            services.AddScoped<HouseOwnerDto>();
         }
         public static void AddCustomApplicationDtoService(this IServiceCollection services)
         {          

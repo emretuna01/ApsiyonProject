@@ -1,6 +1,7 @@
 ﻿using ApsiyonProject.Infrastructure.Controllers;
 using ApsiyonProject.Infrastructure.Controllers.Account;
 using ApsiyonProject.Infrastructure.Controllers.Building;
+using ApsiyonProject.Infrastructure.Controllers.Flats;
 using ApsiyonProject.Infrastructure.Controllers.Floors;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -20,6 +21,7 @@ namespace ApsiyonProject.Infrastructure
             service.AddScoped<BuildingTypeApiController>();
             service.AddScoped<HouseOwnerApiController>();
             service.AddScoped<FloorApiController>();
+            service.AddScoped<FlatApiController>();            
 
         }
 

@@ -16,5 +16,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners
         public string SurName { get; set; }
         public string TCNo { get; set; }
         public string Phone { get; set; }
+        public Guid AdministratorId { get; set; }
+        public HouseOwnerDto Administrator { get; set; }
     }
 }

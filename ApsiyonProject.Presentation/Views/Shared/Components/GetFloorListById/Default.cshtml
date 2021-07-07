@@ -5,15 +5,14 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
+                Actions
+            </th>           
             <th>
                 @Html.DisplayNameFor(model => model.FloorNumber)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.BuildingId)
+                @Html.DisplayNameFor(model => model.Building.BlockName)
             </th>
-            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -21,18 +20,13 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Id)
+                    <a class="btn btn-primary" asp-action="AddFlat" asp-route-floorId="@item.Id" asp-controller="Flat">Daire Ekle</a>
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FloorNumber)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.BuildingId)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.DisplayFor(modelItem => item.Building.BlockName)
                 </td>
             </tr>
         }

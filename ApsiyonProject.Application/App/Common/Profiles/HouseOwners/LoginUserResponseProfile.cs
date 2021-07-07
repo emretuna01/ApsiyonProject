@@ -1,4 +1,10 @@
-﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
+﻿
+
+
+
+
+
+using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
 using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;
 using System;

@@ -137,7 +137,7 @@ namespace ApsiyonProject.Persistance.Migrations
                     b.Property<Guid>("FlatTypeId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("FloorId")
+                    b.Property<Guid>("FloorId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<Guid?>("HouseOwnerId")
@@ -205,7 +205,7 @@ namespace ApsiyonProject.Persistance.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid?>("BuildingId")
+                    b.Property<Guid>("BuildingId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDateTime")
@@ -376,7 +376,9 @@ namespace ApsiyonProject.Persistance.Migrations
 
                     b.HasOne("ApsiyonProject.Domain.App.Entities.Floor", "Floor")
                         .WithMany("Flats")
-                        .HasForeignKey("FloorId");
+                        .HasForeignKey("FloorId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("ApsiyonProject.Domain.App.Entities.HouseOwner", "HouseOwner")
                         .WithMany("Flats")
@@ -395,7 +397,9 @@ namespace ApsiyonProject.Persistance.Migrations
                 {
                     b.HasOne("ApsiyonProject.Domain.App.Entities.Building", "Building")
                         .WithMany("Floors")
-                        .HasForeignKey("BuildingId");
+                        .HasForeignKey("BuildingId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Building");
                 });

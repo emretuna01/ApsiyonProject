@@ -1,6 +1,6 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos;
 using ApsiyonProject.Application.App.Common.Interfaces.Dtos.HouseOwners;
-using ApsiyonProject.Application.App.Common.Interfaces.Services;
+using ApsiyonProject.Application.App.Common.Interfaces.Services.HouseOwners;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
 using ApsiyonProject.Application.App.Common.Profiles.HouseOwners;
 using ApsiyonProject.Domain.App.Entities;
@@ -24,12 +24,20 @@ namespace ApsiyonProject.Persistance.App.Services.Accounts
             _mapper = mapper;
         }
 
-        public async Task<int> CreateAsync(HouseOwnerInitDto entity)
+        public async Task<int> CreateHouseOwnerInitTypeAsync(HouseOwnerInitDto entity)
         {
             var mappedData = _mapper.Map<HouseOwner>(entity);
             await _unitOfWork.HouseOwner.AddTypeAsync(mappedData);
             return await _unitOfWork.SaveChangesAsync();
         }
+
+        public async Task<int> CreateHouseOwnerTypeByAdministratorAsync(HouseOwnerDto houseOwnerDto)
+        {
+            var mappedData = _mapper.Map<HouseOwner>(houseOwnerDto);
+            await _unitOfWork.HouseOwner.AddTypeAsync(mappedData);
+            return await _unitOfWork.SaveChangesAsync();
+        }
+
         public async Task<LoginUserResponseDto> GetUserByModelAync(LoginUserDto loginUserDto)
         {
             var mappedData = _mapper.Map<HouseOwner>(loginUserDto);
