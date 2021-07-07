@@ -1,6 +1,7 @@
 ﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Flats;
 using ApsiyonProject.Application.App.Common.Interfaces.Services.Flats;
 using ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork;
+using ApsiyonProject.Domain.App.Entities;
 using AutoMapper;
 using System;
 using System.Collections.Generic;
@@ -21,19 +22,23 @@ namespace ApsiyonProject.Persistance.App.Services.Flats
             _mapper = mapper;
         }
 
-        public Task<int> CreateFlatTypeAsync(FlatTypeDto entity)
+        public async Task<int> CreateFlatTypeAsync(FlatTypeDto entity)
         {
-            throw new NotImplementedException();
+            var mappedData = _mapper.Map<FlatType>(entity);
+            await _unitOfWork.FlatType.AddTypeAsync(mappedData);
+            return await _unitOfWork.SaveChangesAsync();
         }
 
-        public Task<FlatTypeDto> GetFlatTypeByIdAsync(Guid id)
+        public async Task<FlatTypeDto> GetFlatTypeByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var preMappedData = await _unitOfWork.FlatType.GetWhereAsync(id);
+            return _mapper.Map<FlatTypeDto>(preMappedData);
         }
 
-        public Task<List<FlatTypeDto>> GetListFlatTypeAsync()
+        public async Task<List<FlatTypeDto>> GetListFlatTypeAsync()
         {
-            throw new NotImplementedException();
+            var preMappedData = await _unitOfWork.FlatType.GetListAsync();
+            return _mapper.Map<List<FlatTypeDto>>(preMappedData);
         }
     }
 }

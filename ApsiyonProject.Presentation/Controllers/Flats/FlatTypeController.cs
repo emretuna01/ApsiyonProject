@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using ApsiyonProject.Application.App.Common.Interfaces.Dtos.Flats;
+using ApsiyonProject.Infrastructure.Controllers.Flats;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,18 @@ namespace ApsiyonProject.Presentation.Controllers.Flats
 {
     public class FlatTypeController : Controller
     {
-        public IActionResult Index()
+        private readonly FlatTypeApiController _flatTypeApiController;
+
+        public FlatTypeController(FlatTypeApiController flatTypeApiController)
         {
-            return View();
+            _flatTypeApiController = flatTypeApiController;
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddFlatStatus(FlatTypeDto flatTypeDto)
+        {
+            ViewBag.AddCountMessage = await _flatTypeApiController.AddFlatTypeAsync(flatTypeDto);
+            return RedirectToAction("Index", "Account");
         }
     }
 }

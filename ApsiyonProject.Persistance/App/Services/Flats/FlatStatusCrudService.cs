@@ -29,14 +29,16 @@ namespace ApsiyonProject.Persistance.App.Services.Flats
             return await _unitOfWork.SaveChangesAsync();
         }
 
-        public Task<FlatStatusDto> GetFlatStatusByIdAsync(Guid id)
+        public async Task<FlatStatusDto> GetFlatStatusByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var preMappedData = await _unitOfWork.FlatStatus.GetWhereAsync(id);
+            return _mapper.Map<FlatStatusDto>(preMappedData);
         }
 
-        public Task<List<FlatStatusDto>> GetListFlatStatusAsync()
+        public async Task<List<FlatStatusDto>> GetListFlatStatusAsync()
         {
-            throw new NotImplementedException();
+            var preMappedData = await _unitOfWork.FlatStatus.GetListAsync();
+            return _mapper.Map<List<FlatStatusDto>>(preMappedData);
         }
     }
 }
