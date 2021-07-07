@@ -44,12 +44,12 @@ namespace ApsiyonProject.Persistance.App.Services
             return  await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id);            
         }
 
-
         public async Task<List<Guid>> GetListBuildingHasFloorByIdAsync(Guid id)
         {
             return (await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id)).Where(p => p.Floors.Count > 0).Select(p => p.Id).ToList();
         }
 
+     
 
     }
 }

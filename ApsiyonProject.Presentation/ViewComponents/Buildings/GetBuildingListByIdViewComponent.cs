@@ -12,8 +12,7 @@ namespace ApsiyonProject.Presentation.ViewComponents.Buildings
 {
     public class GetBuildingListByIdViewComponent:ViewComponent
     {
-        private readonly BuildingApiController _buildingApiController;
- 
+        private readonly BuildingApiController _buildingApiController; 
 
         public GetBuildingListByIdViewComponent(BuildingApiController buildingApiController)
         {

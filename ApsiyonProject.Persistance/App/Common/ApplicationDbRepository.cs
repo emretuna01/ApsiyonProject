@@ -58,7 +58,7 @@ namespace ApsiyonProject.Persistance.App.Common
         {
             return await _entity.Where(expression).ToListAsync();
         }
-
+        
         public void Update(T type)
         {             
             _entity.Update(type);           
@@ -68,5 +68,7 @@ namespace ApsiyonProject.Persistance.App.Common
         {
            _entity.RemoveRange(await _entity.ToListAsync());            
         }
+
+      
     }
 }

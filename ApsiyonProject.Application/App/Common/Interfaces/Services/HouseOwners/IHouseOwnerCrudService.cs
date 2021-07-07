@@ -14,5 +14,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.HouseOwners
         public Task<int> CreateHouseOwnerInitTypeAsync(HouseOwnerInitDto entity);
         public Task<int> CreateHouseOwnerTypeByAdministratorAsync(HouseOwnerDto houseOwnerDto);
         public Task<LoginUserResponseDto> GetUserByModelAync(LoginUserDto loginUserDto);
+        public Task<List<HouseOwnerDto>> GetHouseOwnerListByIdWithInculeListAsync(Guid id);
     }
+
 }

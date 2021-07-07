@@ -77,8 +77,7 @@ namespace ApsiyonProject.Presentation.Controllers.Accounts
 
         [HttpPost]
         public async Task<ActionResult> AddUserFromAdministratorWithPost(HouseOwnerDto houseOwnerDto)
-        {
-            //houseOwnerDto.AdministratorId = HttpContext.Session.GetSessionType<Guid>("UserId");
+        {           
             await _houseOwnerApiController.AddHouseOwnerByAdministrator(houseOwnerDto);
             return RedirectToAction("Index");
         }

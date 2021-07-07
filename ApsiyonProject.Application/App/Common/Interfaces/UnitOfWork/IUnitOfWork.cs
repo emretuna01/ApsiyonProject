@@ -15,6 +15,8 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.UnitOfWork
         public IBuildingTypeRepository BuildingType { get; }
         public ICarRepository Car { get; }
         public IFlatRepository Flat { get; }
+        public IFlatTypeRepository FlatType { get; }
+        public IFlatStatusRepository FlatStatus { get; }
         public IFloorRepository Floor { get; }
         public IHouseOwnerRepository HouseOwner { get; }
         public IHouseOwnerRoleClaimsRepository HouseOwnerRoleClaims { get; }

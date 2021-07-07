@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+
 namespace ApsiyonProject.Presentation.ViewComponents.HouseOwners
 {
     public class AddUserFromAdministratorViewComponent:ViewComponent
@@ -21,6 +22,7 @@ namespace ApsiyonProject.Presentation.ViewComponents.HouseOwners
         public IViewComponentResult Invoke()
         {
             _houseOwnerDto.AdministratorId= HttpContext.Session.GetSessionType<Guid>("UserId");
+            _houseOwnerDto.Password=PasswordGenerator.Generate(6, 2);
             return View(_houseOwnerDto);   
 
         }

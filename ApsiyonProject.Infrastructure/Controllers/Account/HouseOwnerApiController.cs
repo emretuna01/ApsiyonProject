@@ -39,5 +39,12 @@ namespace ApsiyonProject.Infrastructure.Controllers.Account
         {
             return  await _houseOwnerCrudService.GetUserByModelAync(loginUserDto);
         }
+
+        [HttpGet("GetHouseOwnerListByIdWithInculeList")]
+        public async Task<List<HouseOwnerDto>> GetHouseOwnerListByIdWithInculeListAsync(Guid id)
+        {
+            return await _houseOwnerCrudService.GetHouseOwnerListByIdWithInculeListAsync(id);
+        }
+
     }
 }

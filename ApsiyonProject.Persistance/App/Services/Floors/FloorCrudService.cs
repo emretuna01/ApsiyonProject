@@ -17,13 +17,13 @@ namespace ApsiyonProject.Persistance.App.Services.Floors
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
         private readonly IBuildingCrudService _buildingCrudService;
-        private readonly List<FloorDto> _floorDtos;
-        public FloorCrudService(IUnitOfWork unitOfWork, IMapper mapper, IBuildingCrudService buildingCrudService, List<FloorDto> floorDtos)
+    
+        public FloorCrudService(IUnitOfWork unitOfWork, IMapper mapper, IBuildingCrudService buildingCrudService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
             _buildingCrudService = buildingCrudService;
-            _floorDtos = floorDtos;
+          
         }
 
         public async Task<int> CreateFloorTypeAsync(FloorDto floorDto)
