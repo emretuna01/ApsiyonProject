@@ -14,6 +14,7 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Buildings
     {
         public Task<int> CreateBuildingAsync(AddBuildingDto entity);
         public Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id);
-
+        public Task<List<Guid>> GetListBuildingHasFloorByIdAsync(Guid id);
+        public Task<List<Building>> GetRawBuildingListByIdWithInculeListAsync(Guid id);
     }
 }

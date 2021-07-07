@@ -25,5 +25,12 @@ namespace ApsiyonProject.Infrastructure.Controllers.Floors
         {
             return await _floorCrudService.CreateFloorTypeAsync(floorDto);
         }
+       
+        [HttpGet("GetFloorListByIdWithInculeList")]
+        public async Task<List<FloorDto>> GetFloorListByIdWithInculeListAsync(Guid id)
+        {
+            return await _floorCrudService.GetFloorListByIdWithInculeListAsync(id);
+        }
+        
     }
 }

@@ -29,9 +29,10 @@ namespace ApsiyonProject.Application
             services.AddScoped<BuildingTypeDto>();
             services.AddScoped<List<GetBuildingListDto>>();
             services.AddScoped<FloorDto>();
-            
-
-
+        }
+        public static void AddCustomApplicationDtoService(this IServiceCollection services)
+        {          
+            services.AddScoped<List<FloorDto>>();
         }
 
     }

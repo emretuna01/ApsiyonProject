@@ -17,47 +17,39 @@ namespace ApsiyonProject.Persistance.App.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
-        
+
 
         public BuildingCrudService(IMapper mapper, IUnitOfWork unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
-            
+
         }
 
         public async Task<int> CreateBuildingAsync(AddBuildingDto entity)
-        {            
+        {
             var mappedData = _mapper.Map<Building>(entity);
             await _unitOfWork.Building.AddTypeAsync(mappedData);
-            return await _unitOfWork.SaveChangesAsync();        
+            return await _unitOfWork.SaveChangesAsync();
         }
 
         public async Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id)
         {
             var preMappedData = await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id);
-             return _mapper.Map<List<GetBuildingListDto>>(preMappedData);            
+            return _mapper.Map<List<GetBuildingListDto>>(preMappedData);
         }
 
-        /*
-        public async Task<BuildingDto> GetBuildingByIdAsync(Guid id)
+        public async Task<List<Building>> GetRawBuildingListByIdWithInculeListAsync(Guid id)
         {
-            var preMappedData = await _unitOfWork.Building.GetWhereAsync(id);
-            return _mapper.Map<BuildingDto>(preMappedData);
+            return  await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id);            
         }
 
 
-
-        public async Task<List<BuildingDto>> GetListIncludeAsync()
+        public async Task<List<Guid>> GetListBuildingHasFloorByIdAsync(Guid id)
         {
-            var preMappedData = await _unitOfWork.Building.GetBuildingsIncludeAsync();
-            return _mapper.Map<List<BuildingDto>>(preMappedData);
+            return (await _unitOfWork.Building.GetBuildingListByIdWithInculeListAsync(id)).Where(p => p.Floors.Count > 0).Select(p => p.Id).ToList();
         }
-        public async Task<List<Building>> GetRawListIncludeAsync()
-        {
-            return await _unitOfWork.Building.GetBuildingsIncludeAsync();            
-        }
-        */
+
 
     }
 }

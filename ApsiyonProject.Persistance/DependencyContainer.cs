@@ -27,6 +27,7 @@ namespace ApsiyonProject.Persistance
     {
         public static void AddPersistanceFundamentalService(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
+       
             //Context
             serviceCollection.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             //Repositories
@@ -49,6 +50,8 @@ namespace ApsiyonProject.Persistance
             serviceCollection.AddScoped<IBuildingStatusCrudService, BuildingStatusCrudService>();
             serviceCollection.AddScoped<IBuildingTypeCrudService, BuildingTypeCrudService>();
             serviceCollection.AddScoped<IFloorCrudService, FloorCrudService>();
+            //CustomDto
+            serviceCollection.AddCustomApplicationDtoService();
             //Unit Of Work
             serviceCollection.AddScoped<IUnitOfWork, UnitOfWork>();
        

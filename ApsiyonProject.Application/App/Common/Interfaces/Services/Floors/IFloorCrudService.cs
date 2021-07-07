@@ -10,5 +10,6 @@ namespace ApsiyonProject.Application.App.Common.Interfaces.Services.Floors
     public interface IFloorCrudService
     {
         public Task<int> CreateFloorTypeAsync(FloorDto floorDto);
+        public Task<List<FloorDto>> GetFloorListByIdWithInculeListAsync(Guid id);
     }
 }

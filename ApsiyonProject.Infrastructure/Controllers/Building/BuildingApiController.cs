@@ -30,7 +30,7 @@ namespace ApsiyonProject.Infrastructure.Controllers.Building
 
         [HttpGet("GetBuildingListByIdWithInculeList")]
         public async Task<List<GetBuildingListDto>> GetBuildingListByIdWithInculeListAsync(Guid id)
-        {
+        {            
             return await _buildingCrudService.GetBuildingListByIdWithInculeListAsync(id);
         }
   

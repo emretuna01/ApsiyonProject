@@ -31,10 +31,7 @@ namespace ApsiyonProject.Presentation.Controllers.Buildings
             return RedirectToAction("Index","Account");
         }
 
-        public async Task<ActionResult> GetBuildingListByIdWithInculeListAsync()
-        {          
-            return ViewComponent("GetBuildingListById");
-        }
+   
 
         
     }
