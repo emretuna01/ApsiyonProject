@@ -11,17 +11,23 @@ namespace ApsiyonProject.Presentation.Controllers.Flats
     public class FlatController : Controller
     {
         private readonly FlatApiController _flatApiController;
+        private readonly FlatStatusApiController _flatStatusApiController;
+        private readonly FlatTypeApiController _flatTypeApiController;
         private readonly FlatDto _flatDto;
 
-        public FlatController(FlatApiController flatApiController, FlatDto flatDto)
+        public FlatController(FlatApiController flatApiController, FlatDto flatDto, FlatStatusApiController flatStatusApiController, FlatTypeApiController flatTypeApiController)
         {
             _flatApiController = flatApiController;
             _flatDto = flatDto;
+            _flatStatusApiController = flatStatusApiController;
+            _flatTypeApiController = flatTypeApiController;
         }
 
-        public ActionResult AddFlat([FromQuery] string floorId)
+        public async Task<ActionResult> AddFlat([FromQuery] string floorId)
         {
             _flatDto.FloorId= Guid.Parse(floorId);
+            ViewBag.FlatStatus = await _flatStatusApiController.GetListFlatStatusAsync();
+            ViewBag.FlatType = await _flatTypeApiController.GetListFlatTypeAsync();
             return View(_flatDto);
         }
 

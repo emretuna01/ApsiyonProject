@@ -21,7 +21,9 @@ namespace ApsiyonProject.Infrastructure
             service.AddScoped<BuildingTypeApiController>();
             service.AddScoped<HouseOwnerApiController>();
             service.AddScoped<FloorApiController>();
-            service.AddScoped<FlatApiController>();            
+            service.AddScoped<FlatApiController>();
+            service.AddScoped<FlatStatusApiController>();
+            service.AddScoped<FlatTypeApiController>();           
 
         }
 

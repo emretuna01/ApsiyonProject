@@ -23,6 +23,6 @@ namespace ApsiyonProject.Presentation.Controllers.Flats
             ViewBag.AddCountMessage = await _flatStatusApiController.AddFlatStatusAsync(flatStatusDto);
             return RedirectToAction("Index", "Account");
         }
-
+   
     }
 }

@@ -16,7 +16,23 @@
                 <label asp-for="FloorId" class="control-label"></label>
                 <input readonly asp-for="FloorId" class="form-control" />
                 <span asp-validation-for="FloorId" class="text-danger"></span>
-            </div> 
+            </div>
+            <div class="form-group">
+                <a id="open" data-toggle="modal" data-target="#showmodal" asp-action="" class="btn btn-primary btn-xs form-control" style="padding-top: 1%; padding-bottom: 0px; padding-left: 0px; padding-right: 0px">Site Durumu Ekle</a>
+                <label asp-for="FlatStatusId" class="control-label"></label>
+                <input asp-for="FlatStatusId" class="form-control" />
+                <span asp-validation-for="FlatStatusId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FlatTypeId" class="control-label"></label>
+                <input asp-for="FlatTypeId" class="form-control" />
+                <span asp-validation-for="FlatTypeId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HouseOwnerId" class="control-label"></label>
+                <input asp-for="HouseOwnerId" class="form-control" />
+                <span asp-validation-for="HouseOwnerId" class="text-danger"></span>
+            </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>

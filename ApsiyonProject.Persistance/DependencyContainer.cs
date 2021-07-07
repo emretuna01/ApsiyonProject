@@ -30,7 +30,7 @@ namespace ApsiyonProject.Persistance
     {
         public static void AddPersistanceFundamentalService(this IServiceCollection serviceCollection, IConfiguration configuration)
         {
-            //TODO:MediatR kütüphanesi ve cqrs tasarımı impelemnte edilecek
+            //TODO:MediatR kütüphanesi ve cqrs tasarımı implemnte edilecek
             //Context
             serviceCollection.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             //Repositories
@@ -53,7 +53,9 @@ namespace ApsiyonProject.Persistance
             serviceCollection.AddScoped<IBuildingStatusCrudService, BuildingStatusCrudService>();
             serviceCollection.AddScoped<IBuildingTypeCrudService, BuildingTypeCrudService>();
             serviceCollection.AddScoped<IFloorCrudService, FloorCrudService>();
-            serviceCollection.AddScoped<IFlatCrudService, FlatCrudService>();            
+            serviceCollection.AddScoped<IFlatCrudService, FlatCrudService>();
+            serviceCollection.AddScoped<IFlatStatusCrudService, FlatStatusCrudService>();
+            serviceCollection.AddScoped<IFlatTypeCrudService, FlatTypeCrudService>();            
             //CustomDto
             serviceCollection.AddCustomApplicationDtoService();
             //Unit Of Work
