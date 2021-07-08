@@ -25,6 +25,8 @@ Projenin Katmanları
  
  DataBase İlişki Modeli
  -----------------
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/DbModel.png?raw=true)
+ 
  HouseOwners tablosu hem site yöneticilerini hem de daire sahiplerini tutan tablodur. AdministratorId kolonu ile Id kolonuna self join yapılmıştır. Bu şekilde AdministratorId
  kolonu boş olan kayıtlar site yöneticileri anlamına gelirken AdministratorId kolonu dolu olan kayıtlar daire sahibi anlamına gelmektedir. İlişkiyi sırası ile lineerleştirmek 
  gerekirse öncelikle;
@@ -35,9 +37,18 @@ Projenin Katmanları
  -----------------
  - Apsiyon.Project uygulamasındaki tüm katmanlar veribatanı bağlantısı için ApsiyonProject.Infrastructure katmanının appsettings dosyasını kullanır.
  - Uygulamadaki Presentation katmanının controllerı direkt olarak veriyi api katmanından alır. api katmanı verileri UnitofWork paterni ile Persistance katmanından alır.
- - Site ve Daire Ekleme arayüzderlerinde tipi ve durum drop down listelerden seçilmelidir. Eğer kayıt yoksa oluştur butonunundan oluşturulmalıdır.
+ - ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Api.png?raw=true)
+ - Site ve Daire Ekleme arayüzderlerinde tipi ve durum drop down listelerden seçilmelidir. Eğer kayıt yoksa oluştur butonundan oluşturulmalıdır.
  - Presentation katmanı olabildiğinde viewcomponentlerle modal yapıda tasarlanmaya çalışılmıştır.
  
- 
- 
- 
+  Uygulama İçi Ekran Görüntüleri
+   -----------------
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AccountIndex.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddBuildingStatus.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddBuildingType.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddBuilding.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddFlatStatus.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddFlatType.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddFlat.png?raw=true)
+ ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/AddHouseOwner.png?raw=true)
+      
