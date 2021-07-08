@@ -1,5 +1,5 @@
 # ApsiyonProject
-ApsiyonProject Patika apisyon bootcamp bitirme projesidir. Kullanım ve tasarım detayları aşağıda listelenmiştir.
+ApsiyonProject Patika apsiyon bootcamp bitirme projesidir. Kullanım ve tasarım detayları aşağıda listelenmiştir.
 
 
 Projenin Katmanları
