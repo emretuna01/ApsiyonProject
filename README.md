@@ -12,16 +12,18 @@ Projenin Katmanları
   - ApsiyonProject.Persistance  
 - presentation  
   - ApsiyonProject.Presentation  
--paymentService
- - PaymentService
+- paymentService
+  - PaymentService
+ 
+ 
+----------------------------
 
-
- ApsiyonProject.Domain = Projedeki tüm entitler burada tutuluyor.
- ApsiyonProject.Application = Projedeki tüm Interface, Dto, Mapping Configurasyonları burada tutuluyor.
- ApsiyonProject.Persistance= Projedeki tüm veritabanı operasyonları bu katmandan sağlanır.
- ApsiyonProject.Infrastructure= Projenin tüm operasyonlarının api servislerinin bulunduğu katmandır. Presantation katmanı işlemlerini bu sayfa üzerinden gerçekleştirir.
- ApsiyonProject.Presentation= Viewların ve ViewComponentlerin tutulduğu katmandır.
- PaymentService:Ödeme işlemlerinin yapıldığı api servisidir.
+ - ApsiyonProject.Domain = Projedeki tüm entitler burada tutuluyor. 
+ - ApsiyonProject.Application = Projedeki tüm Interface, Dto, Mapping Configurasyonları burada tutuluyor. 
+ - ApsiyonProject.Persistance= Projedeki tüm veritabanı operasyonları bu katmandan sağlanır. 
+ - ApsiyonProject.Infrastructure= Projenin tüm operasyonlarının api servislerinin bulunduğu katmandır. Presantation katmanı işlemlerini bu sayfa üzerinden gerçekleştirir. 
+ - ApsiyonProject.Presentation= Viewların ve ViewComponentlerin tutulduğu katmandır. 
+ - PaymentService:Ödeme işlemlerinin yapıldığı api servisidir.
  
  DataBase İlişki Modeli
  -----------------
@@ -38,7 +40,7 @@ Projenin Katmanları
  - Apsiyon.Project uygulamasındaki tüm katmanlar veribatanı bağlantısı için ApsiyonProject.Infrastructure katmanının appsettings dosyasını kullanır.
  - Uygulamadaki Presentation katmanının controllerı direkt olarak veriyi api katmanından alır. api katmanı verileri UnitofWork paterni ile Persistance katmanından alır.
  - ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Api.png?raw=true)
- - Site ve Daire Ekleme arayüzderlerinde tipi ve durum drop down listelerden seçilmelidir. Eğer kayıt yoksa oluştur butonundan oluşturulmalıdır.
+ - Site ve Daire Ekleme arayüzlerinde tipi ve durum kolonu drop down listelerinden seçilmelidir. Eğer kayıt yoksa oluştur butonundan oluşturulmalıdır.
  - Presentation katmanı olabildiğinde viewcomponentlerle modal yapıda tasarlanmaya çalışılmıştır.
  
   Uygulama İçi Ekran Görüntüleri
