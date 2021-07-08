@@ -18,20 +18,40 @@
 </div>
 
 
-<h3>Siteler</h3>
 <a id="open" data-toggle="modal" data-target="#showmodal" asp-action="" class="btn btn-primary" onclick="return confirm('İlk Defa Site Ekliyorsanız Önce site tipi ve durumunu ekleleyiniz. Bu mesaj her eklemede çıkıyor kontrol yazılacak');">Site Ekle </a>
-<a id="open4" data-toggle="modal" data-target="#showmodal4" asp-action="" class="btn btn-primary">Daire Sahibi Ekle</a>
+<br />
+<hr />
+
+<h3>Siteler</h3>
+<hr />
 @await Component.InvokeAsync("GetBuildingListById")
 <hr />
+<br />
+
 <h4>Katlar</h4>
-@await Component.InvokeAsync("GetFloorListById")
 <hr />
-<h4>Daireler</h4>
-@await Component.InvokeAsync("GetFlatListById")
+@await Component.InvokeAsync("GetFloorListById")
+<br />
+<hr />
+
+<a id="open4" data-toggle="modal" data-target="#showmodal4" asp-action="" class="btn btn-primary">Daire Sahibi Ekle</a>
+<br />
 <hr />
 <h4>Daire Sahipleri</h4>
-@await Component.InvokeAsync("GetHouseOwnerListById")
 <hr />
+@await Component.InvokeAsync("GetHouseOwnerListById")
+<br />
+<hr />
+
+<h4>Daireler</h4>
+<hr />
+@await Component.InvokeAsync("GetFlatListById")
+<br />
+<hr />
+
 <h4>Faturalar</h4>
 <hr />
+
+
 <h4>Araçlar</h4>
+<hr />
