@@ -43,6 +43,7 @@ Projenin Katmanları
  - Code First/Entity Framework Core
  - MsSql
  - Onion Architecture
+ - UnitOfWork Repository Patern
  - AutoMapper
  - Asp.net Core Mvc
  - Asp.net Core Web Api
