@@ -64,7 +64,7 @@ Projenin Katmanları
  - Apsiyon.Project uygulamasındaki tüm katmanlar veribatanı bağlantısı için ApsiyonProject.Infrastructure katmanının appsettings dosyasını kullanır.
  - Uygulamadaki Presentation katmanının controller'ı direkt olarak veriyi api katmanından alır. Api katmanı verileri UnitOfWork Reposiyory paterni ile Persistance 
    katmanından alır.
- - Api desteği sayesinde sadece javaascript framework'leri ile beraber birçok özelliğin de kullanılabilmesinin altyapısı hazırlanmış olur.
+ - Api desteği sayesinde javascript framework'leri ile beraber birçok özelliğin de kullanılabilmesinin altyapısı hazırlanmış olur.
  - ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Api.png?raw=true)
  - Site ve Daire Ekleme arayüzlerinde tipi ve durum kolonu drop down listelerinden seçilmelidir. Eğer kayıt yoksa oluştur butonundan oluşturulmalıdır.
  - Presentation katmanı olabildiğinde viewcomponentlerle modal yapıda tasarlanmaya çalışılmıştır.
