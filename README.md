@@ -37,6 +37,17 @@ Projenin Katmanları
    
     ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Setup2.png?raw=true)
     
+ 
+ Kullanılan Teknolojiler.
+ -----------------
+ - Code First/Entity Framework Core
+ - MsSql
+ - Onion Architecture
+ - AutoMapper
+ - Asp.net Core Mvc
+ - Asp.net Core Web Api
+ 
+ 
  DataBase İlişki Modeli
  -----------------
  ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/DbModel.png?raw=true)
@@ -50,7 +61,9 @@ Projenin Katmanları
  Uygulama İçi Notlar
  -----------------
  - Apsiyon.Project uygulamasındaki tüm katmanlar veribatanı bağlantısı için ApsiyonProject.Infrastructure katmanının appsettings dosyasını kullanır.
- - Uygulamadaki Presentation katmanının controllerı direkt olarak veriyi api katmanından alır. api katmanı verileri UnitofWork paterni ile Persistance katmanından alır.
+ - Uygulamadaki Presentation katmanının controller'ı direkt olarak veriyi api katmanından alır. Api katmanı verileri UnitOfWork Reposiyory paterni ile Persistance 
+   katmanından alır.
+ - Api desteği sayesinde sadece javaascript framework'leri ile beraber birçok özelliğin de kullanılabilmesinin altyapısı hazırlanmış olur.
  - ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Api.png?raw=true)
  - Site ve Daire Ekleme arayüzlerinde tipi ve durum kolonu drop down listelerinden seçilmelidir. Eğer kayıt yoksa oluştur butonundan oluşturulmalıdır.
  - Presentation katmanı olabildiğinde viewcomponentlerle modal yapıda tasarlanmaya çalışılmıştır.
