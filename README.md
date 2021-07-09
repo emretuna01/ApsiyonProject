@@ -25,6 +25,18 @@ Projenin Katmanları
  - ApsiyonProject.Presentation= Viewların ve ViewComponentlerin tutulduğu katmandır. 
  - PaymentService:Ödeme işlemlerinin yapıldığı api servisidir.
  
+  Kurulum
+ -----------------
+ - Database tablolarını oluşturmak için configurasyon dosyası ApsiyonProject.Infrastructure katmanının appsettings dosyasında tutuluyor ve tüm diğer katmanlar
+   db erişimleri için bu connection string'i refereasn alıyor. Sqlserver'ızın connection string bilgilerini bu alanda tanımlanması gerekiyor. 
+   
+    ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Setup.png?raw=true)
+ - Sonraki aşamada daha zahmetsiz bir kurulum için Migration classlarını silip package manager'da migration ve database operasyonlarını gerçekleştirebilirsiniz.
+ - Normal şartlarda karşılaşılmaz ama Presentation katmanı farklı bir dizine kopyalanmış ise ApsiyonProject.Presentation katmanının Start up Class'ında da düzenlenmesi 
+   gereken bir path adresi bulunuyor.
+   
+    ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/Setup2.png?raw=true)
+    
  DataBase İlişki Modeli
  -----------------
  ![alt text](https://github.com/emretuna01/ApsiyonProject/blob/main/img/DbModel.png?raw=true)
